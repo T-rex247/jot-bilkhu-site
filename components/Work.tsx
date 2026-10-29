@@ -62,7 +62,7 @@ export default function Work() {
   return (
     <section id="work" className="relative border-t border-rule bg-black">
       <div className="mx-auto max-w-[1440px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 lg:pl-24">
-        <SectionHead n="03" label="The work" className="max-w-xs" />
+        <SectionHead n="03" tone="run" label="The work" className="max-w-xs" />
         <KineticHeading as="h2" text="Three businesses," accent="three operating systems." className="display mt-8 max-w-5xl text-[clamp(2.6rem,6.4vw,6.2rem)] text-white" />
         <p className="si mt-6 max-w-2xl text-[16px] leading-relaxed text-grey">Field services. First-party commerce. Research and institutions. Each one its own system — built from how the business actually runs.</p>
       </div>

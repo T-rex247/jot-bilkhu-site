@@ -4,6 +4,7 @@ import { BIZ } from "@/data/site";
  * HERO — one screen, normal scroll (Jot 2026-10-29: the 230svh scroll-pinned 4-slide deck was "jarring and confusing";
  * he kept its content, not the mechanism). k1 + chapter 1 is the hero; chapters 2–4 sit right under it as a
  * three-step strip (the same night→morning room, k2–k4), so the whole deck reads at a glance and the page just scrolls.
+ * Each step carries its story-stage color (globals.css STORY TONES); this strip is the key for the page.
  * No scroll listener, no pin, no Lenis. Reveals are CSS (.rv/.rvw on mount, .si in view) and respect reduced motion.
  */
 const TALL = "(max-width: 640px) and (orientation: portrait)";
@@ -11,11 +12,11 @@ const HEAD = "I build owner-led businesses";
 const ACCENT = "their entire operating system.";
 
 const STEPS = [
-  { plate: "02", stage: "Operating review", img: "/hero/k2-1920.webp", alt: "The same operations room, the center screen now drawing a system schematic",
+  { plate: "02", tone: "tone-review", stage: "Operating review", img: "/hero/k2-1920.webp", alt: "The same operations room, the center screen now drawing a system schematic",
     head: "I sit with you and learn", accent: "how your business actually runs.", copy: "One working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next." },
-  { plate: "03", stage: "Build", img: "/hero/k3-1920.webp", alt: "The schematic spread across the whole screen wall as a live operating system",
+  { plate: "03", tone: "tone-build", stage: "Build", img: "/hero/k3-1920.webp", alt: "The schematic spread across the whole screen wall as a live operating system",
     head: "Then I build the system", accent: "that runs it.", copy: "The whole spine — estimating, contracts, scheduling, payments — custom to exactly how you run. Not another app you bend yourself around." },
-  { plate: "04", stage: "Run it together", img: "/hero/k4-1920.webp", alt: "The operations room at dawn, the desk clear and trucks heading out",
+  { plate: "04", tone: "tone-run", stage: "Run it together", img: "/hero/k4-1920.webp", alt: "The operations room at dawn, the desk clear and trucks heading out",
     head: "Custom to exactly", accent: "how you run.", copy: "I stay on, fix what comes up, and add to it as the business changes." },
 ];
 
@@ -41,10 +42,9 @@ export default function Hero() {
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
           <div className="hero-panel edge max-w-[62rem] p-5 sm:p-8 lg:p-10">
-            <div className="rv mb-4 flex items-center gap-4" style={{ ["--rv-y" as string]: "8px" }}>
-              <span className="counter text-white">01</span>
-              <span className="h-px w-8 bg-white/50" />
-              <span className="label label-plain !text-white/80">A DAY RIGHT NOW</span>
+            <div className="rv tone-problem mb-5 flex items-center gap-3" style={{ ["--rv-y" as string]: "8px" }}>
+              <span className="tone-badge">01</span>
+              <span className="tone-pill">A day right now</span>
             </div>
             <h1 className="display max-w-5xl text-[clamp(2.7rem,6.4vw,6.6rem)] text-white" style={{ textShadow: "0 2px 30px rgba(0,0,0,.6)" }}>
               {words.map((w, i) => (<span key={i}><span className="rvw inline-block" style={{ ["--rv-d" as string]: `${i * 0.05}s` }}>{w}</span>{" "}</span>))}
@@ -69,15 +69,14 @@ export default function Hero() {
       <section aria-label="How it goes" className="bg-black">
         <ol className="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-5 py-14 sm:px-8 sm:py-20 md:grid-cols-3 md:gap-8">
           {STEPS.map((s, i) => (
-            <li key={s.plate} className="si" style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
-              <div className="edge relative aspect-[16/10] overflow-hidden bg-black">
+            <li key={s.plate} className={`si ${s.tone}`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
+              <div className="tone-edge relative aspect-[16/10] overflow-hidden bg-black">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={s.img} alt={s.alt} loading="lazy" className="h-full w-full object-cover" />
               </div>
-              <div className="mt-6 flex items-center gap-4">
-                <span className="counter text-white">{s.plate}</span>
-                <span className="h-px w-8 bg-white/50" />
-                <span className="label label-plain !text-white/80">{s.stage.toUpperCase()}</span>
+              <div className="mt-6 flex items-center gap-3">
+                <span className="tone-badge">{s.plate}</span>
+                <span className="tone-pill">{s.stage}</span>
               </div>
               <h2 className="display mt-4 text-[clamp(1.6rem,2.4vw,2.3rem)] text-white">
                 {s.head} <span className="block text-grey">{s.accent}</span>

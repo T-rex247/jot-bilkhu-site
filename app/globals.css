@@ -129,3 +129,20 @@ html.menu-open, html.menu-open body { overflow: hidden; }
   .img-card:hover img { transform: none; }
   .si { transition: none; }
 }
+
+/*
+  STORY TONES (Jot 2026-10-29, msg 5928): four muted colors, each one a stage of the story, used ONLY on the frame —
+  label pills, number badges, card borders, step numerals. Body text stays white/grey; photos stay black and white.
+  problem = the 9pm pains · review = learn how it runs · build = the system · run = running it + results.
+  The three step cards under the hero (review/build/run) are the key for the rest of the page.
+*/
+.tone-problem { --tone: #d9805f; }
+.tone-review  { --tone: #74a3dc; }
+.tone-build   { --tone: #d6aa52; }
+.tone-run     { --tone: #82ba8e; }
+.tone-badge { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.08em; line-height: 1; padding: 0.4em 0.55em; border-radius: 6px; color: var(--tone); background: color-mix(in srgb, var(--tone) 16%, transparent); border: 1px solid color-mix(in srgb, var(--tone) 50%, transparent); }
+.tone-pill { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; line-height: 1; padding: 0.55em 1.1em; border-radius: 999px; color: var(--tone); background: color-mix(in srgb, var(--tone) 12%, transparent); border: 1px solid color-mix(in srgb, var(--tone) 42%, transparent); }
+.tone-edge { border: 1px solid color-mix(in srgb, var(--tone) 45%, transparent); }
+.tone-text { color: var(--tone); }
+.tone-rule { border-top-color: color-mix(in srgb, var(--tone) 60%, transparent) !important; }
+[class*="tone-"] .hair.tone-hair { background: var(--tone); }
