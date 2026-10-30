@@ -168,11 +168,3 @@ export const CLOSING = {
   p: "One working session. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
   talk: "Talk to Jot",
 };
-
-/* The four story stages as one text-only line in the hero (Jot 2026-10-30, msg 6045: the stacked step cards were "too much"). */
-export const STAGES = [
-  { n: "01", tone: "tone-problem", label: "A day right now" },
-  { n: "02", tone: "tone-review", label: "Operating review" },
-  { n: "03", tone: "tone-build", label: "Build" },
-  { n: "04", tone: "tone-run", label: "Run it together" },
-];
