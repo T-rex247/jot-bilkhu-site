@@ -3,7 +3,7 @@ import { BIZ } from "@/data/site";
 /**
  * HERO — one screen, normal scroll (Jot 2026-10-29: the 230svh scroll-pinned 4-slide deck was "jarring and confusing";
  * he kept its content, not the mechanism). k1 + chapter 1 is the hero; chapters 2–4 sit right under it as a
- * three-step strip (the same night→morning room, k2–k4), so the whole deck reads at a glance and the page just scrolls.
+ * compact stacked list (no pictures since msg 6058), so the whole deck reads at a glance and the page just scrolls.
  * Each step carries its story-stage color (globals.css STORY TONES); this strip is the key for the page.
  * No scroll listener, no pin, no Lenis. Reveals are CSS (.rv/.rvw on mount, .si in view) and respect reduced motion.
  */
@@ -12,11 +12,11 @@ const HEAD = "I build owner-led businesses";
 const ACCENT = "their entire operating system.";
 
 const STEPS = [
-  { plate: "02", tone: "tone-review", stage: "Operating review", img: "/hero/k2-1920.webp", alt: "The same operations room, the center screen now drawing a system schematic",
+  { plate: "02", tone: "tone-review", stage: "Operating review",
     head: "I sit with you and learn", accent: "how your business actually runs.", copy: "One working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next." },
-  { plate: "03", tone: "tone-build", stage: "Build", img: "/hero/k3-1920.webp", alt: "The schematic spread across the whole screen wall as a live operating system",
+  { plate: "03", tone: "tone-build", stage: "Build",
     head: "Then I build the system", accent: "that runs it.", copy: "The whole spine — estimating, contracts, scheduling, payments — custom to exactly how you run. Not another app you bend yourself around." },
-  { plate: "04", tone: "tone-run", stage: "Run it together", img: "/hero/k4-1920.webp", alt: "The operations room at dawn, the desk clear and trucks heading out",
+  { plate: "04", tone: "tone-run", stage: "Run it together",
     head: "Custom to exactly", accent: "how you run.", copy: "I stay on, fix what comes up, and add to it as the business changes." },
 ];
 
@@ -65,23 +65,19 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* chapters 2–4 of the old deck: the same room, night → morning, as three steps you read by scrolling */}
+      {/* chapters 2–4 as a compact stacked list, no pictures (Jot 2026-10-30, msg 6058): stage, headline, one line of copy per row */}
       <section aria-label="How it goes" className="bg-black">
-        <ol className="mx-auto grid max-w-[1440px] grid-cols-1 gap-10 px-5 py-14 sm:px-8 sm:py-20 md:grid-cols-3 md:gap-8">
+        <ol className="mx-auto max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14">
           {STEPS.map((s, i) => (
-            <li key={s.plate} className={`si ${s.tone}`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
-              <div className="tone-edge relative aspect-[16/10] overflow-hidden bg-black">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={s.img} alt={s.alt} loading="lazy" className="h-full w-full object-cover" />
-              </div>
-              <div className="mt-6 flex items-center gap-3">
+            <li key={s.plate} className={`si ${s.tone} grid grid-cols-1 gap-3 border-t border-white/10 py-6 first:border-t-0 md:grid-cols-[13rem_minmax(0,1fr)_minmax(0,1fr)] md:items-baseline md:gap-8`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
+              <div className="flex items-center gap-3">
                 <span className="tone-badge">{s.plate}</span>
                 <span className="tone-pill">{s.stage}</span>
               </div>
-              <h2 className="display mt-4 text-[clamp(1.6rem,2.4vw,2.3rem)] text-white">
-                {s.head} <span className="block text-grey">{s.accent}</span>
+              <h2 className="display text-[clamp(1.4rem,2vw,1.9rem)] text-white">
+                {s.head} <span className="text-grey">{s.accent}</span>
               </h2>
-              <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/80">{s.copy}</p>
+              <p className="max-w-xl text-[15px] leading-relaxed text-white/80">{s.copy}</p>
             </li>
           ))}
         </ol>
