@@ -12,7 +12,7 @@ export default function Services() {
   return (
     <section id="services" className="relative overflow-hidden border-t border-rule bg-black py-16 sm:py-24">
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8">
-        <SectionHead n="04" label="What I build" className="max-w-xs" />
+        <SectionHead n="04" tone="build" label="What I build" className="max-w-xs" />
         <div className="mt-8 grid gap-8 lg:grid-cols-12">
           <KineticHeading as="h2" text="The whole spine," accent="one piece at a time." className="display text-[clamp(2.6rem,6.4vw,6.2rem)] text-white lg:col-span-8" />
           <p className="si self-end text-[16px] leading-relaxed text-grey lg:col-span-4">Grouped by what your business gets, in the order a job moves through it. Everything here is something I have already built and a business runs on today.</p>

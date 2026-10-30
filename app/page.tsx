@@ -1,5 +1,5 @@
 import Nav from "@/components/Nav";
-import HeroScrub from "@/components/HeroScrub";
+import Hero from "@/components/Hero";
 import Day from "@/components/Day";
 import Story from "@/components/Story";
 import Work from "@/components/Work";
@@ -16,7 +16,7 @@ export default function Page() {
     <main>
       <SmoothScroll />
       <Nav />
-      <HeroScrub />
+      <Hero />
       <Day />
       <Story />
       <Work />

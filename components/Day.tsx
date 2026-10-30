@@ -13,7 +13,7 @@ export default function Day() {
         <div className="plate-scrim" />
         <div className="plate-scrim-l" />
         <div className="relative mx-auto flex min-h-[88svh] max-w-[1440px] flex-col justify-end px-5 pb-14 pt-32 sm:px-8 sm:pb-20">
-          <SectionHead n="01" label={DAY.label} className="max-w-xs" />
+          <SectionHead n="01" tone="problem" label={DAY.label} className="max-w-xs" />
           <KineticHeading as="h2" text="It’s 9pm and you’re still at" accent="the kitchen table." className="display mt-8 max-w-4xl text-[clamp(2.6rem,7vw,6.6rem)] text-white" />
         </div>
       </div>
