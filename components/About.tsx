@@ -1,7 +1,7 @@
 import { ABOUT } from "@/data/site";
 import { KineticHeading, SectionHead } from "./primitives";
 
-/* 06 — About: the headshot monochrome-graded in a hairline frame on the left; stark type block on the right. */
+/* 06 — About: the headshot in its original color in a hairline frame on the left; stark type block on the right. */
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden border-t border-rule bg-black">
@@ -9,7 +9,7 @@ export default function About() {
         <div className="border-b border-rule lg:col-span-5 lg:border-b-0 lg:border-r">
           <figure className="plate img-card relative aspect-[4/5] !border-0 lg:h-full lg:min-h-[78svh]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/jot-headshot.jpg" alt="Jot Bilkhu" width={1280} height={1219} loading="eager" className="mono-grade absolute inset-0 h-full w-full object-cover" />
+            <img src="/jot-headshot.jpg" alt="Jot Bilkhu" width={1280} height={1219} loading="eager" className="absolute inset-0 h-full w-full object-cover" />
             <div className="plate-scrim" />
             <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6">
               <div>
