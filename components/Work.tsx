@@ -1,4 +1,4 @@
-import { STUDIES, type Study } from "@/data/site";
+import { UI, STUDIES, type Study } from "@/data/site";
 import { CountUp, KineticHeading, SectionHead } from "./primitives";
 import Spine from "./Spine";
 
@@ -14,7 +14,7 @@ function Chapter({ s }: { s: Study }) {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
           <header className="lg:col-span-5">
             <div className="flex items-baseline gap-5">
-              <span className="counter text-white">CASE {s.n}</span>
+              <span className="counter text-white">{UI.casePrefix} {s.n}</span>
               <span className="label label-plain">{s.sector}</span>
             </div>
             <KineticHeading as="h3" text={headMain} accent={headAccent} className="display mt-6 text-[clamp(2.1rem,4vw,3.8rem)] text-white" />
@@ -36,9 +36,9 @@ function Chapter({ s }: { s: Study }) {
                 </figure>
               ))}
             </div>
-            <ul className="grid-rules mt-10 grid gap-0 sm:grid-cols-3">
+            <ul className="mt-8 grid gap-4 sm:grid-cols-3">
               {s.results.map((r, k) => (
-                <li key={k} className="si flex flex-col py-6 sm:pr-6 lg:px-6 first:lg:pl-0" style={{ ["--si-d" as string]: `${0.15 + k * 0.1}s` }}>
+                <li key={k} className="si card flex flex-col p-5" style={{ ["--si-d" as string]: `${0.15 + k * 0.1}s` }}>
                   {r.num !== undefined
                     ? <div className="num text-[clamp(3.4rem,6vw,5.6rem)] text-white"><CountUp to={r.num} /><span className="counter ml-2 align-middle text-[0.72rem] text-grey">{r.suffix?.trim().toUpperCase()}</span></div>
                     : <span className="counter text-grey-dim">{s.n}.R{k + 1}</span>}
@@ -60,11 +60,11 @@ function Chapter({ s }: { s: Study }) {
 
 export default function Work() {
   return (
-    <section id="work" className="relative border-t border-rule bg-black">
+    <section id="work" className="sec-light relative border-t border-rule bg-black">
       <div className="mx-auto max-w-[1440px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 lg:pl-24">
-        <SectionHead n="03" tone="run" label="The work" className="max-w-xs" />
-        <KineticHeading as="h2" text="Three businesses," accent="three operating systems." className="display mt-8 max-w-5xl text-[clamp(2.6rem,6.4vw,6.2rem)] text-white" />
-        <p className="si mt-6 max-w-2xl text-[16px] leading-relaxed text-grey">Field services. First-party commerce. Research and institutions. Each one its own system — built from how the business actually runs.</p>
+        <SectionHead n="03" tone="run" label={UI.workLabel} className="max-w-xs" />
+        <KineticHeading as="h2" text={UI.workHeading} accent={UI.workAccent} className="display mt-8 max-w-5xl text-[clamp(2.6rem,6.4vw,6.2rem)] text-white" />
+        <p className="si mt-6 max-w-2xl text-[16px] leading-relaxed text-grey">{UI.workIntro}</p>
       </div>
       <div className="relative">
         <Spine labels={["01", "02", "03"]} className="left-0 lg:left-8" />

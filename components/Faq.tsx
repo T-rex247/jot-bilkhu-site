@@ -1,21 +1,22 @@
-import { FAQ, FAQ_LABEL } from "@/data/site";
+import { FAQ } from "@/data/site";
 import { KineticHeading, SectionHead } from "./primitives";
 
-/* 07 — Questions: the four things an owner asks before booking. Plain hairline rows, always open, no accordion to tap through. */
 export default function Faq() {
   return (
-    <section id="faq" className="relative border-t border-rule bg-black py-16 sm:py-24">
+    <section id="faq" className="sec-light sec-grid border-t border-rule py-16 sm:py-24">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
-        <SectionHead n="07" label={FAQ_LABEL} className="max-w-xs" />
-        <KineticHeading as="h2" text="Before you" accent="book." className="display mt-8 text-[clamp(2.4rem,5vw,4.8rem)] text-white" />
-        <dl className="mt-12 border-b border-rule">
-          {FAQ.map((f, i) => (
-            <div key={f.q} className="si grid grid-cols-1 gap-2 border-t border-rule py-6 md:grid-cols-2 md:gap-10 md:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
-              <dt className="display text-[clamp(1.35rem,2.2vw,1.9rem)] text-white">{f.q}</dt>
-              <dd className="max-w-xl text-[16px] leading-relaxed text-grey">{f.a}</dd>
-            </div>
-          ))}
-        </dl>
+        <SectionHead n="07" label={FAQ.label} />
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          <KineticHeading text={FAQ.h} className="display text-[clamp(2.6rem,6.4vw,6.2rem)]" />
+          <div className="space-y-3">
+            {FAQ.items.map(({ q, a }) => (
+              <details key={q} className="faq-row card p-5 sm:p-7">
+                <summary><span className="display text-xl sm:text-2xl">{q}</span><span aria-hidden className="faq-plus">+</span></summary>
+                <p className="mt-5 max-w-2xl pr-4 text-[15px] leading-relaxed text-grey">{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

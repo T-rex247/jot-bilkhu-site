@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { SERVICES, RULES, WORLDS } from "@/data/site";
+import { UI, BIZ, SERVICES, RULES, WORLDS } from "@/data/site";
 import { KineticHeading, SectionHead } from "./primitives";
 
 /* 04 — SERVICES: the regrouped structure (AUDIT.md) as a mission-control explorer. Left: four numbered rows separated by
@@ -12,15 +12,15 @@ export default function Services() {
   return (
     <section id="services" className="relative overflow-hidden border-t border-rule bg-black py-16 sm:py-24">
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8">
-        <SectionHead n="04" tone="build" label="What I build" className="max-w-xs" />
+        <SectionHead n="04" tone="build" label={UI.servicesLabel} className="max-w-xs" />
         <div className="mt-8 grid gap-8 lg:grid-cols-12">
-          <KineticHeading as="h2" text="The whole spine," accent="one piece at a time." className="display text-[clamp(2.6rem,6.4vw,6.2rem)] text-white lg:col-span-8" />
-          <p className="si self-end text-[16px] leading-relaxed text-grey lg:col-span-4">Grouped by what your business gets, in the order a job moves through it. Everything here is something I have already built and a business runs on today.</p>
+          <KineticHeading as="h2" text={UI.servicesHeading} accent={UI.servicesAccent} className="display text-[clamp(2.6rem,6.4vw,6.2rem)] text-white lg:col-span-8" />
+          <p className="si self-end text-[16px] leading-relaxed text-grey lg:col-span-4">{UI.servicesIntro}</p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 border-t border-rule lg:grid-cols-12">
           {/* selector */}
-          <ol className="lg:col-span-5 lg:border-r lg:border-rule" role="tablist" aria-label="Service groups">
+          <ol className="lg:col-span-5 lg:border-r lg:border-rule" role="tablist" aria-label={UI.serviceGroups}>
             {SERVICES.map((s, i) => {
               const on = i === active;
               return (
@@ -36,7 +36,7 @@ export default function Services() {
                     <p className={`pl-5 text-[14px] leading-relaxed text-grey transition-all duration-500 ${on ? "mt-3 max-h-24 opacity-100" : "max-h-0 overflow-hidden opacity-0 lg:mt-3 lg:max-h-24 lg:opacity-100"}`}>{s.outcome}</p>
                     {/* mobile: items inline under the active group */}
                     <ul className={`mt-4 space-y-2 pl-5 lg:hidden ${on ? "block" : "hidden"}`}>
-                      {s.items.map((it) => <li key={it.t} className="flex gap-3 text-[14.5px] text-white"><span className="mt-[10px] h-px w-3 shrink-0 bg-white/60" />{it.t}</li>)}
+                      {s.items.map((it) => <li key={it.t} className="card flex gap-3 p-4 text-[14.5px] text-white"><span className="mt-[10px] h-px w-3 shrink-0 bg-white/60" />{it.t}</li>)}
                     </ul>
                   </button>
                 </li>
@@ -58,9 +58,9 @@ export default function Services() {
                   <p key={g.id} className="rv display-light mt-2 text-[clamp(1.3rem,2vw,1.9rem)] text-white">{g.outcome}</p>
                 </div>
               </div>
-              <ul key={`list-${g.id}`} className="grid grid-cols-1 gap-px bg-rule sm:grid-cols-2 [&>li:last-child:nth-child(odd)]:sm:col-span-2">
+              <ul key={`list-${g.id}`} className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2 [&>li:last-child:nth-child(odd)]:sm:col-span-2">
                 {g.items.map((it, k) => (
-                  <li key={it.t} className="rv bg-black p-5" style={{ ["--rv-d" as string]: `${k * 0.06}s`, ["--rv-y" as string]: "12px" }}>
+                  <li key={it.t} className="rv card p-5" style={{ ["--rv-d" as string]: `${k * 0.06}s`, ["--rv-y" as string]: "12px" }}>
                     <p className="text-[14.5px] font-medium leading-snug text-white">{it.t}</p>
                     <p className="counter mt-2 text-[0.6rem] text-grey-dim">{it.from.toUpperCase()}</p>
                   </li>
@@ -71,16 +71,16 @@ export default function Services() {
         </div>
 
         {/* rules on every build + the worlds */}
-        <div className="mt-10 grid grid-cols-1 border-t border-rule lg:mt-16 lg:grid-cols-12">
+        <div className="spec-card mt-10 grid grid-cols-1 px-6 lg:mt-16 lg:grid-cols-12 lg:px-8">
           <div className="si py-8 lg:col-span-8 lg:border-r lg:border-rule lg:pr-10">
-            <span className="label">On every build</span>
+            <span className="spec-label">{BIZ.rulesLabel}</span>
             <ul className="mt-6 grid gap-x-8 gap-y-4 sm:grid-cols-2">
               {RULES.map((r, i) => <li key={r.t} className="flex gap-4 text-[15px] leading-snug text-white"><span className="counter mt-[3px] text-grey-dim">0{i + 1}</span>{r.t}</li>)}
             </ul>
           </div>
           <div className="si border-t border-rule py-8 lg:col-span-4 lg:border-t-0 lg:pl-10" style={{ ["--si-d" as string]: "0.12s" }}>
-            <span className="label">Built for</span>
-            <p className="display mt-5 text-3xl text-white">Owner-led businesses.</p>
+            <span className="spec-label">{BIZ.worldsLabel}</span>
+            <p className="display mt-5 text-3xl text-white">{BIZ.ownerLed}</p>
             <ul className="mt-4 space-y-2">{WORLDS.map((w, i) => <li key={w} className="flex gap-4 text-[15px] text-grey"><span className="counter mt-[3px] text-grey-dim">0{i + 1}</span>{w}</li>)}</ul>
           </div>
         </div>
