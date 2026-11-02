@@ -10,11 +10,11 @@ export default function Story() {
           <SectionHead n="02" label={STORY.label} className="max-w-xs" />
           <KineticHeading as="h2" text="My family runs a" accent="waterproofing company." className="display mt-8 text-[clamp(2.4rem,5vw,4.8rem)] text-white" />
           <p className="si mt-8 max-w-xl text-[16px] leading-relaxed text-grey">{STORY.p1}</p>
-          <p className="si mt-4 max-w-xl text-[16px] leading-relaxed text-white">{STORY.p2}</p>
-          <blockquote className="si si-hair mt-10 max-w-xl border-l border-white pl-6">
+          <blockquote className="si si-hair mt-8 max-w-xl border-l border-white pl-6">
             <p className="display-light text-[clamp(1.4rem,2.4vw,2rem)] text-white">{STORY.pull}</p>
             <div className="hair mt-5 w-16" />
           </blockquote>
+          <p className="si mt-10 max-w-xl text-[16px] leading-relaxed text-white">{STORY.p2}</p>
           <p className="si label mt-8 !text-white">{STORY.p3}</p>
         </div>
         <div className="order-1 lg:order-2 lg:col-span-6">

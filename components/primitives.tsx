@@ -72,7 +72,7 @@ export function KineticHeading({ text, className, accent, accentClass = "block t
 /** Section head — the SpaceX counter row: "02 / 07 — LABEL" over a hairline. */
 export type Tone = "problem" | "review" | "build" | "run";
 /** Section head. With a `tone`, the number and label become a colored badge + pill (the story-stage colors in globals.css). */
-export function SectionHead({ n, total = "07", label, tone, className = "" }: { n: string; total?: string; label: string; tone?: Tone; className?: string }) {
+export function SectionHead({ n, total = "08", label, tone, className = "" }: { n: string; total?: string; label: string; tone?: Tone; className?: string }) {
   if (tone) return (
     <div className={`si si-hair tone-${tone} ${className}`}>
       <div className="flex items-center gap-3">

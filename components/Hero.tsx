@@ -12,11 +12,11 @@ const HEAD = "I build owner-led businesses";
 const ACCENT = "their entire operating system.";
 
 const STEPS = [
-  { plate: "02", tone: "tone-review", stage: "Operating review",
+  { tone: "tone-review", stage: "Operating review",
     head: "I sit with you and learn", accent: "how your business actually runs.", copy: "One working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next." },
-  { plate: "03", tone: "tone-build", stage: "Build",
+  { tone: "tone-build", stage: "Build",
     head: "Then I build the system", accent: "that runs it.", copy: "The whole spine — estimating, contracts, scheduling, payments — custom to exactly how you run. Not another app you bend yourself around." },
-  { plate: "04", tone: "tone-run", stage: "Run it together",
+  { tone: "tone-run", stage: "Run it together",
     head: "Custom to exactly", accent: "how you run.", copy: "I stay on, fix what comes up, and add to it as the business changes." },
 ];
 
@@ -42,15 +42,14 @@ export default function Hero() {
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
           <div className="hero-panel edge max-w-[62rem] p-5 sm:p-8 lg:p-10">
-            <div className="rv tone-problem mb-5 flex items-center gap-3" style={{ ["--rv-y" as string]: "8px" }}>
-              <span className="tone-badge">01</span>
-              <span className="tone-pill">A day right now</span>
-            </div>
             <h1 className="display max-w-5xl text-[clamp(2.7rem,6.4vw,6.6rem)] text-white" style={{ textShadow: "0 2px 30px rgba(0,0,0,.6)" }}>
               {words.map((w, i) => (<span key={i}><span className="rvw inline-block" style={{ ["--rv-d" as string]: `${i * 0.05}s` }}>{w}</span>{" "}</span>))}
               <span className="rvw block text-grey" style={{ ["--rv-d" as string]: `${words.length * 0.05}s` }}>{ACCENT}</span>
             </h1>
-            <p className="rv mt-6 max-w-xl text-balance text-base text-white/85 sm:text-lg" style={{ textShadow: "0 1px 14px rgba(0,0,0,.7)", ["--rv-d" as string]: "0.1s", ["--rv-y" as string]: "12px" }}>
+            <p className="rv mt-5 max-w-2xl text-balance text-[17px] font-medium leading-snug text-white sm:text-xl" style={{ textShadow: "0 1px 14px rgba(0,0,0,.7)", ["--rv-d" as string]: "0.06s", ["--rv-y" as string]: "12px" }}>
+              {BIZ.forWho}
+            </p>
+            <p className="rv mt-3 max-w-xl text-balance text-base text-white/85 sm:text-lg" style={{ textShadow: "0 1px 14px rgba(0,0,0,.7)", ["--rv-d" as string]: "0.1s", ["--rv-y" as string]: "12px" }}>
               {BIZ.sub}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -69,9 +68,8 @@ export default function Hero() {
       <section aria-label="How it goes" className="bg-black">
         <ol className="mx-auto max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14">
           {STEPS.map((s, i) => (
-            <li key={s.plate} className={`si ${s.tone} grid grid-cols-1 gap-3 border-t border-white/10 py-6 first:border-t-0 md:grid-cols-[13rem_minmax(0,1fr)_minmax(0,1fr)] md:items-baseline md:gap-8`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
+            <li key={s.stage} className={`si ${s.tone} grid grid-cols-1 gap-3 border-t border-white/10 py-6 first:border-t-0 md:grid-cols-[13rem_minmax(0,1fr)_minmax(0,1fr)] md:items-baseline md:gap-8`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
               <div className="flex items-center gap-3">
-                <span className="tone-badge">{s.plate}</span>
                 <span className="tone-pill">{s.stage}</span>
               </div>
               <h2 className="display text-[clamp(1.4rem,2vw,1.9rem)] text-white">

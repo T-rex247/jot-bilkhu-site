@@ -1,4 +1,5 @@
-/* Every string here is verbatim from https://jot-studio-site.vercel.app (captured 2026-10-26). Nothing invented. */
+/* Strings are verbatim from https://jot-studio-site.vercel.app (captured 2026-10-26) unless marked. Nothing invented.
+   Marked 2026-11-02 (msg 6133): BIZ.forWho and FAQ are new wording, built from what the site already says; each needs Jot's sign-off. */
 export const BIZ = {
   name: "Jot Bilkhu",
   kicker: "Jot Bilkhu · Custom Software",
@@ -12,6 +13,7 @@ export const BIZ = {
   cta: "Book a paid Operating Review",
   ctaNote: "A working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next.",
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
+  forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
   sub: "I sit with you, learn how your business actually runs, and build the system that runs it — the whole spine, not another app you bend yourself around.",
 };
 
@@ -28,9 +30,9 @@ export const DAY = {
 
 export const STORY = {
   label: "My story",
-  p1: "My family runs a waterproofing and foundation-repair company. For years only one person could write an estimate: the owner. Everything he knew about pricing a job lived in his head.",
+  p1: "For years only one person could write an estimate: the owner.",
   p2: "I sat with him, learned how he thinks through a bid, and built it into the system they run on now.",
-  pull: "His method is written down and repeatable, so Cliff, their other estimator, prices jobs the same way and works faster, and the owner can teach it and pass it on.",
+  pull: "Everything he knew about pricing a job lived in his head.",
   p3: "Now I do the same for other small businesses.",
 };
 
@@ -56,7 +58,7 @@ export const STUDIES: Study[] = [
     results: [
       { strong: "The business runs on it daily", rest: " — bids, e-signatures, scheduling, invoicing, live card payments." },
       { strong: "Receipts and warranty certificates deliver themselves", rest: ", with a log that proves it." },
-      { strong: "Tribal knowledge became a system", rest: " — what lived in people’s heads is now documented, enforced, and running." },
+      { strong: "Tribal knowledge became a system", rest: " — the owner’s method is written down and repeatable, so Cliff, their other estimator, prices jobs the same way and works faster, and the owner can teach it and pass it on." },
     ],
     pull: "The goal was never “an app for waterproofers.” It was this business’s own system — so nothing they knew got lost.",
   },
@@ -108,7 +110,7 @@ export const SERVICES: ServiceGroup[] = [
       { t: "Bidding", from: "Sohan & Sons" },
       { t: "A site-diagram canvas made for the trade", from: "“Estimators draw the job on a site-diagram canvas made for waterproofing work.”" },
       { t: "Owner approval before anything is scheduled", from: "Sohan & Sons" },
-      { t: "The owner’s pricing method, written down and repeatable", from: "My story" },
+      { t: "The owner’s pricing method, written down and repeatable", from: "Sohan & Sons" },
     ],
   },
   {
@@ -168,3 +170,11 @@ export const CLOSING = {
   p: "One working session. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
   talk: "Talk to Jot",
 };
+
+export const FAQ_LABEL = "Questions";
+export const FAQ = [
+  { q: "Do I own it?", a: "[JOT TO ANSWER]" },
+  { q: "What if you’re unavailable?", a: "You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer." },
+  { q: "Do I have to drop QuickBooks or whatever I use now?", a: "Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over." },
+  { q: "What does it cost?", a: "It depends on what your business needs, so it starts with a paid Operating Review. After that I build one piece at a time, starting with the piece that pays for itself first." },
+];

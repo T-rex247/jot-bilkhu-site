@@ -1,7 +1,7 @@
 import { CLOSING, BIZ } from "@/data/site";
 import { Magnetic, KineticHeading, Parallax, SectionHead } from "./primitives";
 
-/* 07 — Closing CTA: full-bleed dawn command-center plate, text bottom-left, the same mailto CTA; then the contact band as rule rows. */
+/* 08 — Closing CTA: full-bleed dawn command-center plate, text bottom-left, the same mailto CTA; then the contact band as rule rows. */
 export default function Closing() {
   return (
     <section id="book" className="relative overflow-hidden border-t border-rule bg-black">
@@ -15,7 +15,7 @@ export default function Closing() {
         <div className="plate-scrim" />
         <div className="plate-scrim-l" />
         <div className="relative mx-auto flex min-h-[92svh] max-w-[1440px] flex-col justify-end px-5 pb-16 pt-32 sm:px-8 sm:pb-24">
-          <SectionHead n="07" tone="review" label="Next step" className="max-w-xs" />
+          <SectionHead n="08" tone="review" label="Next step" className="max-w-xs" />
           <KineticHeading as="h2" text="Start with an" accent="Operating Review." className="display mt-8 max-w-5xl text-[clamp(2.8rem,8vw,7.6rem)] text-white" />
           <p className="si mt-7 max-w-2xl text-[16px] leading-relaxed text-white/85">{CLOSING.p}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
