@@ -35,7 +35,7 @@ export default function Spine({ labels = ["01", "02", "03"], className = "" }: {
           <span className="counter spine-lbl hidden text-[0.62rem] text-white/35 transition-colors duration-500 lg:block">{l}</span>
         </span>
       ))}
-      <style>{`.spine-node.is-lit .spine-dot{border-color:#fff;background:#fff;box-shadow:0 0 0 5px rgba(255,255,255,.12)}.spine-node.is-lit .spine-lbl{color:#fff}`}</style>
+      <style>{`.spine-node.is-lit .spine-dot{border-color:var(--white);background:var(--white);box-shadow:0 0 0 5px var(--rule)}.spine-node.is-lit .spine-lbl{color:var(--white)}`}</style>
     </div>
   );
 }

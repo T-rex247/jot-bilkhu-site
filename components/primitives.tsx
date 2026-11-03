@@ -55,9 +55,8 @@ export function Reveal({ children, className, delay = 0, as: Tag = "div" }: { ch
   return <Tag className={`rv ${className ?? ""}`} style={delay ? ({ ["--rv-d" as string]: `${delay}s` } as React.CSSProperties) : undefined}>{children}</Tag>;
 }
 
-/** Kinetic word-by-word heading — base-visible (.rvw), per-word delay. The accent is a second line in dim grey
- *  (SpaceX register: no italic, no color — hierarchy by weight and value). Space stays OUTSIDE the inline-block span. */
-export function KineticHeading({ text, className, accent, accentClass = "block text-grey", as: Tag = "h2" }: { text: string; className?: string; accent?: string; accentClass?: string; as?: "h1" | "h2" | "h3" }) {
+/** Word-by-word heading with a palette-aware accent line. */
+export function KineticHeading({ text, className, accent, accentClass = "block accent-text", as: Tag = "h2" }: { text: string; className?: string; accent?: string; accentClass?: string; as?: "h1" | "h2" | "h3" }) {
   const words = text.split(" ");
   return (
     <Tag className={className} aria-label={text + (accent ? " " + accent : "")}>
@@ -69,26 +68,12 @@ export function KineticHeading({ text, className, accent, accentClass = "block t
   );
 }
 
-/** Section head — the SpaceX counter row: "02 / 07 — LABEL" over a hairline. */
 export type Tone = "problem" | "review" | "build" | "run";
-/** Section head. With a `tone`, the number and label become a colored badge + pill (the story-stage colors in globals.css). */
-export function SectionHead({ n, total = "07", label, tone, className = "" }: { n: string; total?: string; label: string; tone?: Tone; className?: string }) {
-  if (tone) return (
-    <div className={`si si-hair tone-${tone} ${className}`}>
-      <div className="flex items-center gap-3">
-        <span className="tone-badge">{n}</span>
-        <span className="tone-pill">{label}</span>
-      </div>
-      <div className="hair tone-hair mt-4 w-full opacity-40" />
-    </div>
-  );
+/** Numbered mono eyebrow; optional story tone. */
+export function SectionHead({ n, label, tone, className = "" }: { n: string; label: string; tone?: Tone; className?: string }) {
   return (
-    <div className={`si si-hair ${className}`}>
-      <div className="flex items-baseline gap-5">
-        <span className="counter">{n} / {total}</span>
-        <span className="label label-plain">{label}</span>
-      </div>
-      <div className="hair mt-4 w-full opacity-30" />
+    <div className={`si ${tone ? `tone-${tone}` : ""} ${className}`}>
+      <div className="eyebrow"><span>{n} // {label}</span></div>
     </div>
   );
 }

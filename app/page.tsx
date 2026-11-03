@@ -6,6 +6,7 @@ import Work from "@/components/Work";
 import Services from "@/components/Services";
 import How from "@/components/How";
 import About from "@/components/About";
+import Faq from "@/components/Faq";
 import Closing from "@/components/Closing";
 import Footer from "@/components/Footer";
 import MobileBar from "@/components/MobileBar";
@@ -23,6 +24,7 @@ export default function Page() {
       <Services />
       <How />
       <About />
+      <Faq />
       <Closing />
       <Footer />
       <MobileBar />

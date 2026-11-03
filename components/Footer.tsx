@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BIZ } from "@/data/site";
+import { UI, BIZ } from "@/data/site";
 
 export default function Footer() {
   const [rm, setRm] = useState(false);
@@ -12,7 +12,7 @@ export default function Footer() {
         <p className="counter text-[0.68rem]"><span className="text-white">{BIZ.name.toUpperCase()}</span> · {BIZ.city.toUpperCase()}</p>
         <p className="flex items-center gap-5">
           <a href={BIZ.emailHref} className="counter inline-flex min-h-11 items-center normal-case text-[0.68rem] hover:text-white">{BIZ.email}</a>
-          <button onClick={toggle} aria-pressed={rm} title="Reduce motion" className="counter inline-flex min-h-11 items-center border border-rule px-3 text-[0.6rem] hover:border-white hover:text-white">{rm ? "MOTION OFF" : "MOTION ON"}</button>
+          <button onClick={toggle} aria-pressed={rm} title={UI.footerTitle} className="counter inline-flex min-h-11 items-center border border-rule px-3 text-[0.6rem] hover:border-white hover:text-white">{rm ? UI.motionOff : UI.motionOn}</button>
         </p>
       </div>
     </footer>
