@@ -16,7 +16,7 @@ export default function Nav() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 text-white transition-colors duration-500 ${open ? "flex h-[100svh] flex-col !bg-black" : ""} ${solid ? "bg-black border-b border-rule" : "bg-gradient-to-b from-black/70 to-transparent border-b border-transparent"}`}>
       <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" onClick={() => setOpen(false)} className="display -my-2 flex items-center py-2 text-[1.35rem] font-bold tracking-[0.06em] whitespace-nowrap">{UI.navName}<span className="counter ml-3 hidden text-grey lg:inline">{UI.navKicker}</span></a>
+        <a href="#top" onClick={() => setOpen(false)} className="display -my-2 flex flex-col py-2 text-[1.35rem] font-bold leading-none tracking-[0.06em] whitespace-nowrap sm:flex-row sm:items-center">{UI.navName}<span className="counter mt-1 text-[0.6rem] text-grey sm:ml-3 sm:mt-0 sm:text-[0.68rem]">{UI.navKicker}</span></a>
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map(([h, l]) => <a key={h} href={h} className="draw display whitespace-nowrap py-2 text-[0.82rem] font-medium tracking-[0.22em] text-white/85 hover:text-white">{l}</a>)}
           <a href={BIZ.bookHref} className="btn btn-solid !px-5 !py-2.5 !text-[0.72rem]">{UI.navCta}</a>

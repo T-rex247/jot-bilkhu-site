@@ -35,7 +35,7 @@ export default function Hero() {
               <span className="rvw block accent-text" style={{ ["--rv-d" as string]: `${words.length * 0.05}s` }}>{HERO_ACCENT}</span>
             </h1>
             <p className="rv mt-5 max-w-2xl text-balance text-[17px] font-medium leading-snug text-white sm:text-xl" style={{ textShadow: "0 1px 14px rgba(0,0,0,.7)", ["--rv-d" as string]: "0.06s", ["--rv-y" as string]: "12px" }}>
-              {BIZ.forWho}
+              {BIZ.tagline}
             </p>
             <p className="rv mt-3 max-w-xl text-balance text-base text-white/85 sm:text-lg" style={{ textShadow: "0 1px 14px rgba(0,0,0,.7)", ["--rv-d" as string]: "0.1s", ["--rv-y" as string]: "12px" }}>
               {BIZ.sub}

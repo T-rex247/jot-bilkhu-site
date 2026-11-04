@@ -2,6 +2,7 @@
    Marked 2026-11-02 (msg 6133): BIZ.forWho and FAQ are new wording, built from what the site already says; each needs Jot's sign-off. */
 export const BIZ = {
   name: "Jot Bilkhu",
+  brand: "Jot Bilkhu — Custom Software Studio", // business name, Jot msg 6233, 2026-11-04
   ownerLed: "Owner-led businesses.",
   rulesLabel: "On every build",
   worldsLabel: "Built for",
@@ -16,6 +17,7 @@ export const BIZ = {
   cta: "Book a paid Operating Review",
   ctaNote: "A working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next.",
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
+  tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
   sub: "I sit with you, learn how your business actually runs, and build the system that runs it — the whole spine, not another app you bend yourself around.",
 };
@@ -213,7 +215,7 @@ export const UI = {
   "seeWork": "See the work",
   "menu": "Menu",
   "navName": "Jot Bilkhu",
-  "navKicker": "CUSTOM SOFTWARE",
+  "navKicker": "CUSTOM SOFTWARE STUDIO",
   "navCta": "Book a Review",
   "workLabel": "The work",
   "workHeading": "Three businesses,",
