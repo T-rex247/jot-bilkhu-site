@@ -31,7 +31,7 @@ export default function Closing() {
           <div className="grid grid-cols-1 gap-4 py-8 lg:grid-cols-3">
             <div className="card p-6">
               <span className="counter uppercase text-grey">{CLOSING.talk}</span>
-              <p className="mt-3 text-[15px] font-medium text-white">{BIZ.name}</p>
+              <p className="mt-3 text-[15px] font-medium text-white">{BIZ.brand}</p>
               <p className="counter mt-2 text-grey">{BIZ.city.toUpperCase()}</p>
             </div>
             <a href={BIZ.phoneHref} className="si card group p-6">
