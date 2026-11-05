@@ -14,8 +14,8 @@ export const BIZ = {
   emailHref: "mailto:gurjotbilkhu@gmail.com",
   bookHref:
     "mailto:gurjotbilkhu@gmail.com?subject=Operating%20Review&body=Hi%20Jot%20%E2%80%94%20I%27d%20like%20to%20book%20an%20Operating%20Review.%0A%0ABusiness%3A%20%0AWhat%27s%20eating%20the%20most%20time%20right%20now%3A%20",
-  cta: "Book a paid Operating Review",
-  ctaNote: "A working session plus a written map of your biggest time-sinks and risks. Yours to keep, whatever you decide next.",
+  cta: "Get your free Operating Review",
+  ctaNote: "A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.",
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
   tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
@@ -158,7 +158,7 @@ export const WORLDS = ["Field Services", "First-Party Commerce", "Research & Ins
 export const HOW = {
   label: "How it works",
   steps: [
-    { n: "1", t: "Operating Review.", d: "One session. I map where your time and money leak. You keep the map either way." },
+    { n: "1", t: "Operating Review.", d: "Free. One conversation where I map where your time and money leak. You keep the map either way." },
     { n: "2", t: "Build.", d: "One piece at a time, starting with the piece that pays for itself first. You use each piece as soon as it’s done." },
     { n: "3", t: "Run it together.", d: "I stay on, fix what comes up, and add to it as the business changes." },
   ],
@@ -172,7 +172,7 @@ export const ABOUT = {
 
 export const CLOSING = {
   h: "Start with an Operating Review.",
-  p: "One working session. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
+  p: "A free conversation. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
   talk: "Talk to Jot",
 };
 
@@ -183,7 +183,7 @@ export const FAQ = {
     { q: "Who will I be working with?", a: "Me. This is my studio. I have engineers behind me on the bigger builds, but you deal with me from the first conversation through the hand-off, and after." },
     { q: "What if you’re unavailable?", a: "You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer." },
     { q: "Do I have to drop QuickBooks or whatever I use now?", a: "Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over." },
-    { q: "What does it cost?", a: "It depends on what your business needs, so it starts with a paid Operating Review. After that I build one piece at a time, starting with the piece that pays for itself first." },
+    { q: "What does it cost?", a: "The Operating Review is free. It’s a conversation, not a pitch. If there’s something worth building, I build it one piece at a time, starting with the piece that pays for itself." },
   ],
 };
 
@@ -216,7 +216,7 @@ export const UI = {
   "menu": "Menu",
   "navName": "Jot Bilkhu",
   "navKicker": "CUSTOM SOFTWARE STUDIO",
-  "navCta": "Book a Review",
+  "navCta": "Free Review",
   "workLabel": "The work",
   "workHeading": "Three businesses,",
   "workAccent": "three operating systems.",
@@ -234,7 +234,7 @@ export const UI = {
   "storyCaption": "Waterproofing and foundation repair — the family business the first system was built for.",
   "storyFigure": "FIG. 02",
   "closingLabel": "Next step",
-  "closingHeading": "Start with an",
+  "closingHeading": "Start with a free",
   "closingAccent": "Operating Review.",
   "phoneLabel": "CALL OR TEXT",
   "emailLabel": "EMAIL",
