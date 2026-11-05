@@ -18,7 +18,7 @@ export const BIZ = {
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
   tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
-  sub: "I sit with you, learn how your business actually runs, and build the system that runs it — the whole spine, not another app you bend yourself around.",
+  sub: "I sit with you, learn how your business actually runs, and build the system that runs it, so the business stops living in your head and you get your time back.", // time-back, Jot msg 6301/6307, 2026-11-05
 };
 
 export const DAY = {
@@ -30,6 +30,15 @@ export const DAY = {
     "A customer calls about an old warranty and someone digs through a filing cabinet.",
   ],
   close: "You’ve looked at software. It wants you to run your business its way.",
+  /* the "after", Jot msg 6301/6307, 2026-11-05: the same four moments, solved */
+  afterLabel: "With the system",
+  after: [
+    "Tomorrow’s bids went out this afternoon, priced the way you would price them.",
+    "Anyone on the team can price a job, because how you price is built into the system.",
+    "The schedule is on everyone’s phone. Every crew knows where it’s going.",
+    "A customer calls about an old warranty and it’s on screen in seconds.",
+  ],
+  afterClose: "It’s 9pm and you’re home. The business keeps running without you at the table.",
 };
 
 export const STORY = {
@@ -158,7 +167,7 @@ export const HOW = {
   label: "How it works",
   steps: [
     { n: "1", t: "Operating Review.", d: "One conversation where I map where your time and money leak. You keep the map either way." },
-    { n: "2", t: "Build.", d: "One piece at a time, built in weeks, not months, starting with the piece that pays for itself first. You use each piece as soon as it’s done." },
+    { n: "2", t: "Build.", d: "One piece at a time, built in weeks, not months, starting with the piece that pays for itself first. You see that first piece working on your real work before you pay for it." },
     { n: "3", t: "Run it together.", d: "I stay on, fix what comes up, and add to it as the business changes." },
   ],
 };
@@ -183,7 +192,8 @@ export const FAQ = {
     { q: "What if you’re unavailable?", a: "You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer." },
     { q: "Do I have to drop QuickBooks or whatever I use now?", a: "Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over." },
     { q: "How can a custom system be realistic for a business my size?", a: "Because the way software gets built has changed. I work with engineers and modern AI build tools, so a system that used to take a development team many months now comes together piece by piece in weeks. You start using the first piece while the next one is being built." },
-    { q: "What does it cost?", a: "The Operating Review is free. It’s a conversation, not a pitch. If there’s something worth building, I build it one piece at a time, starting with the piece that pays for itself." },
+    { q: "What do I actually get back?", a: "Your time, first. The hours spent re-typing, chasing and answering the same questions come off your plate, and the business stops depending on one person’s memory. The Operating Review shows you where those hours go, so you know what you’d get back before anything is built." },
+    { q: "What does it cost?", a: "The Operating Review is free. It’s a conversation, not a pitch. If there’s something worth building, I build it one piece at a time, starting with the piece that pays for itself, and you see that first piece working before you pay for it." },
   ],
 };
 
