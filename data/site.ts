@@ -14,7 +14,7 @@ export const BIZ = {
   emailHref: "mailto:gurjotbilkhu@gmail.com",
   bookHref:
     "mailto:gurjotbilkhu@gmail.com?subject=Operating%20Review&body=Hi%20Jot%20%E2%80%94%20I%27d%20like%20to%20book%20an%20Operating%20Review.%0A%0ABusiness%3A%20%0AWhat%27s%20eating%20the%20most%20time%20right%20now%3A%20",
-  cta: "Book your free Operating Review",
+  cta: "Get your free Operating Review",
   ctaNote: "A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.",
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
   tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)

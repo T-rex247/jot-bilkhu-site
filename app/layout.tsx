@@ -9,7 +9,7 @@ const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variab
 
 const SITE_URL = "https://jot-studio-v2.vercel.app";
 const TITLE = "Jot Bilkhu — Custom Software Studio";
-const DESC = "Custom software for small and mid-sized businesses, built around the way you actually run — estimating, contracts, scheduling, payments, the whole spine. Book your free Operating Review.";
+const DESC = "Custom software for small and mid-sized businesses, built around the way you actually run — estimating, contracts, scheduling, payments, the whole spine. Get your free Operating Review.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
