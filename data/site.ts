@@ -159,7 +159,7 @@ export const HOW = {
   label: "How it works",
   steps: [
     { n: "1", t: "Operating Review.", d: "One conversation where I map where your time and money leak. You keep the map either way." },
-    { n: "2", t: "Build.", d: "One piece at a time, starting with the piece that pays for itself first. You use each piece as soon as it’s done." },
+    { n: "2", t: "Build.", d: "One piece at a time, built in weeks, not months, starting with the piece that pays for itself first. You use each piece as soon as it’s done." },
     { n: "3", t: "Run it together.", d: "I stay on, fix what comes up, and add to it as the business changes." },
   ],
 };
