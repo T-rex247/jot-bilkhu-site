@@ -180,7 +180,7 @@ export const FAQ = {
   label: "Questions",
   h: "Questions",
   items: [
-    { q: "Who will I be working with?", a: "Me. I’m independent, and I work in collaboration with HusslAI on the builds. You deal with me from the first conversation through the hand-off." },
+    { q: "Who will I be working with?", a: "Me. This is my studio. I have engineers behind me on the bigger builds, but you deal with me from the first conversation through the hand-off, and after." },
     { q: "What if you’re unavailable?", a: "You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer." },
     { q: "Do I have to drop QuickBooks or whatever I use now?", a: "Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over." },
     { q: "What does it cost?", a: "It depends on what your business needs, so it starts with a paid Operating Review. After that I build one piece at a time, starting with the piece that pays for itself first." },
