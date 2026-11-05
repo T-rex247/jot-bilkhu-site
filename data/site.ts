@@ -183,6 +183,7 @@ export const FAQ = {
     { q: "Who will I be working with?", a: "Me. This is my studio. I have engineers behind me on the bigger builds, but you deal with me from the first conversation through the hand-off, and after." },
     { q: "What if you’re unavailable?", a: "You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer." },
     { q: "Do I have to drop QuickBooks or whatever I use now?", a: "Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over." },
+    { q: "How can a custom system be realistic for a business my size?", a: "Because the way software gets built has changed. I work with engineers and modern AI build tools, so a system that used to take a development team many months now comes together piece by piece in weeks. You start using the first piece while the next one is being built." },
     { q: "What does it cost?", a: "The Operating Review is free. It’s a conversation, not a pitch. If there’s something worth building, I build it one piece at a time, starting with the piece that pays for itself." },
   ],
 };
