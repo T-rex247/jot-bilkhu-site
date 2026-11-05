@@ -14,8 +14,8 @@ export const BIZ = {
   emailHref: "mailto:gurjotbilkhu@gmail.com",
   bookHref:
     "mailto:gurjotbilkhu@gmail.com?subject=Operating%20Review&body=Hi%20Jot%20%E2%80%94%20I%27d%20like%20to%20book%20an%20Operating%20Review.%0A%0ABusiness%3A%20%0AWhat%27s%20eating%20the%20most%20time%20right%20now%3A%20",
-  cta: "Get your free Operating Review",
-  ctaNote: "A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.",
+  cta: "Start with an Operating Review",
+  ctaNote: "On me. A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.",
   h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
   tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
@@ -158,7 +158,7 @@ export const WORLDS = ["Field Services", "First-Party Commerce", "Research & Ins
 export const HOW = {
   label: "How it works",
   steps: [
-    { n: "1", t: "Operating Review.", d: "Free. One conversation where I map where your time and money leak. You keep the map either way." },
+    { n: "1", t: "Operating Review.", d: "One conversation where I map where your time and money leak. You keep the map either way." },
     { n: "2", t: "Build.", d: "One piece at a time, starting with the piece that pays for itself first. You use each piece as soon as it’s done." },
     { n: "3", t: "Run it together.", d: "I stay on, fix what comes up, and add to it as the business changes." },
   ],
@@ -172,7 +172,7 @@ export const ABOUT = {
 
 export const CLOSING = {
   h: "Start with an Operating Review.",
-  p: "A free conversation. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
+  p: "One conversation. I map where your business’s time and money actually leak — the missed jobs, the double entry, the things only one person knows how to do. You keep the written map, whatever you decide next.",
   talk: "Talk to Jot",
 };
 
@@ -216,7 +216,7 @@ export const UI = {
   "menu": "Menu",
   "navName": "Jot Bilkhu",
   "navKicker": "CUSTOM SOFTWARE STUDIO",
-  "navCta": "Free Review",
+  "navCta": "Operating Review",
   "workLabel": "The work",
   "workHeading": "Three businesses,",
   "workAccent": "three operating systems.",
@@ -234,7 +234,7 @@ export const UI = {
   "storyCaption": "Waterproofing and foundation repair — the family business the first system was built for.",
   "storyFigure": "FIG. 02",
   "closingLabel": "Next step",
-  "closingHeading": "Start with a free",
+  "closingHeading": "Start with an",
   "closingAccent": "Operating Review.",
   "phoneLabel": "CALL OR TEXT",
   "emailLabel": "EMAIL",
