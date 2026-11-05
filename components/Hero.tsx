@@ -25,7 +25,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/15 to-transparent" />
 
         <div className="pointer-events-none absolute inset-0 z-10 hidden sm:block">
-          <span className="counter hud absolute right-8 top-24 text-[0.68rem] text-white/70">{BIZ.city.toUpperCase()}</span>
+          <span className="counter hud absolute right-8 top-24 text-[0.72rem] font-semibold" style={{ color: "#9fd0aa" }}>{BIZ.city.toUpperCase()}</span>
         </div>
 
         <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
