@@ -27,6 +27,17 @@ export default function Day() {
         </ol>
         <div className="rule" />
         <p className="si display-light max-w-4xl py-10 text-[clamp(1.5rem,3.2vw,2.8rem)] text-grey sm:py-14">{DAY.close}</p>
+        {/* the "after" (Jot 6301/6307): the same four moments, solved */}
+        <p className="counter pt-2 text-[0.72rem] tracking-[0.18em] text-white/70">{DAY.afterLabel.toUpperCase()}</p>
+        <ol className="grid grid-cols-1 gap-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
+          {DAY.after.map((l, i) => (
+            <li key={i} className="si card day-after p-6 lg:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
+              <span className="counter accent-text">0{i + 1}</span>
+              <p className="mt-4 text-[16px] leading-relaxed text-white/90">{l}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="si display-light max-w-4xl pb-14 pt-4 text-[clamp(1.5rem,3.2vw,2.8rem)] text-white sm:pb-20">{DAY.afterClose}</p>
       </div>
     </section>
   );
