@@ -20,7 +20,7 @@ export const BIZ = {
   h1: "I build owner-led businesses their entire operating system, piece by piece.",
   tagline: "For owners who know they should automate but have no idea where to start.", // Sunjeet's words, Jot msg 6329/6331/6333 (was: "Custom software for small and mid-sized businesses, built around the way you actually run.")
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
-  sub: "I sit with you, learn how your business actually runs, and build the system that runs it, so the business stops living in your head and you get your time back.", // time-back, Jot msg 6301/6307, 2026-11-05
+  sub: "I sit with you, learn how your business runs, and build software that does the manual work for you. You get your time back.", // Jot msg 6342, 2026-11-06 (plain language, msg 6340)
 };
 
 export const DAY = {
