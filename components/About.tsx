@@ -13,7 +13,7 @@ export default function About() {
             <div className="plate-scrim" />
             <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6">
               <div>
-                <span className="counter text-grey">{UI.pronunciation}</span>
+                <span className="text-[13px] italic text-grey">{UI.pronunciation}</span>
                 <p className="mt-1 text-[15px] font-medium text-white">{UI.aboutCaption}</p>
               </div>
               <span className="counter shrink-0 text-grey">{UI.aboutFigure}</span>
@@ -23,7 +23,7 @@ export default function About() {
         <div className="px-5 py-16 sm:px-8 sm:py-24 lg:col-span-7 lg:pl-14">
           <SectionHead n="06" label={ABOUT.label} className="max-w-xs" />
           <KineticHeading as="h2" text={UI.aboutHeading} accent={UI.aboutAccent} className="display mt-8 text-[clamp(2.4rem,5vw,4.8rem)] text-white" />
-          <p className="si mt-8 max-w-2xl text-[16px] leading-relaxed text-grey">{ABOUT.text}</p>
+          <p className="si mt-8 max-w-2xl text-[16px] leading-relaxed text-grey">{ABOUT.text.split("{pron}")[0]}<em>{ABOUT.pron}</em>{ABOUT.text.split("{pron}")[1]}</p>
           <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {ABOUT.threads.map((t, i) => (
               <li key={t} className="si card p-5" style={{ ["--si-d" as string]: `${i * 0.1}s` }}>

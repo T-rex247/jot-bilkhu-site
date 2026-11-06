@@ -187,7 +187,8 @@ export const FIRST_BUILD = {
 
 export const ABOUT = {
   label: "About me",
-  text: "I’m Jot Bilkhu (say it “jo-th”), short for Gurjot. I live in Skokie, just outside Chicago. Before software I was a coach, and I still make art at House of Paradox. What ties it together: I listen to how people actually work, then build the thing that fits. I’d rather make things than sell them, so most of my work comes from people I’ve already built for.",
+  pron: "pronounced “joe-th”", // Jot 6319: italic
+  text: "I’m Jot Bilkhu ({pron}), short for Gurjot. I live in Skokie, just outside Chicago. Before software I was a coach, and I still make art at House of Paradox. What ties it together: I listen to how people actually work, then build the thing that fits. I’d rather make things than sell them, so most of my work comes from people I’ve already built for.",
   threads: ["Before software I was a coach", "I still make art at House of Paradox", "I listen to how people actually work, then build the thing that fits"],
 };
 
@@ -263,7 +264,7 @@ export const UI = {
   "emailLabel": "EMAIL",
   "aboutHeading": "I’d rather make things",
   "aboutAccent": "than sell them.",
-  "pronunciation": "SAY IT “JO-TH”",
+  "pronunciation": "pronounced “joe-th”",
   "aboutCaption": "Jot Bilkhu · Skokie, IL",
   "aboutFigure": "FIG. 06",
   "howHeading": "One session.",
