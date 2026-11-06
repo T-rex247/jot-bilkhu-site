@@ -172,6 +172,19 @@ export const HOW = {
   ],
 };
 
+/* Jot 6310/6318: what the first working piece includes, before you pay. */
+export const FIRST_BUILD = {
+  label: "Your first working piece includes",
+  note: "You see all of it working on your real work before you pay.",
+  items: [
+    { t: "On your own web address", d: "It lives at your business’s address, not a demo link." },
+    { t: "One core job, end to end", d: "For example, pricing a bid, start to finish." },
+    { t: "Your team logs in and uses it", d: "Real accounts for the people who do the work." },
+    { t: "One round of changes", d: "You use it, tell me what’s off, I fix it." },
+    { t: "Yours once it’s paid for", d: "You own the system and the code." },
+  ],
+};
+
 export const ABOUT = {
   label: "About me",
   text: "I’m Jot Bilkhu (say it “jo-th”), short for Gurjot. I live in Skokie, just outside Chicago. Before software I was a coach, and I still make art at House of Paradox. What ties it together: I listen to how people actually work, then build the thing that fits. I’d rather make things than sell them, so most of my work comes from people I’ve already built for.",
