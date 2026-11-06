@@ -1,4 +1,4 @@
-import { UI, HOW, BIZ } from "@/data/site";
+import { UI, HOW, BIZ, FIRST_BUILD } from "@/data/site";
 import { KineticHeading, SectionHead } from "./primitives";
 
 /* Three steps on white cards; the first step retains the review CTA. */
@@ -20,6 +20,19 @@ export default function How() {
             </li>
           ))}
         </ol>
+        {/* Jot 6310/6318: what the first working piece includes */}
+        <div className="si tone-build mt-10 rounded-[14px] border border-rule p-6 sm:p-8">
+          <p className="counter tone-text text-[0.72rem] tracking-[0.18em]" style={{ color: "var(--tone)" }}>{FIRST_BUILD.label.toUpperCase()}</p>
+          <ul className="mt-6 grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-5">
+            {FIRST_BUILD.items.map((it) => (
+              <li key={it.t} className="border-t pt-4 tone-rule">
+                <h3 className="display text-[1.15rem] leading-tight text-white">{it.t}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-grey">{it.d}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-[15px] text-white/90">{FIRST_BUILD.note}</p>
+        </div>
       </div>
     </section>
   );
