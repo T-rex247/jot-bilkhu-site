@@ -3,7 +3,9 @@
 export const BIZ = {
   name: "Jot Bilkhu",
   brand: "Jot Bilkhu — Custom Software Studio", // business name, Jot msg 6233, 2026-11-04
-  ownerLed: "Owner-led businesses.",
+  ownerLed: "Any owner who wants to automate.", // Jot 6322: open the door
+  openDoor: "You don’t need to know where to start. Figuring that out is my job.",
+  soFarLabel: "Built so far for",
   rulesLabel: "On every build",
   worldsLabel: "Built for",
   kicker: "Jot Bilkhu · Custom Software",
@@ -161,7 +163,7 @@ export const RULES = [
   { t: "Self-healing operations", from: "House of Paradox" },
   { t: "The hand-off is part of the build, not an afterthought", from: "Gender at Work Lab" },
 ];
-export const WORLDS = ["Field Services", "First-Party Commerce", "Research & Institutions"];
+export const WORLDS = ["Field services", "Online stores", "Research labs"];
 
 export const HOW = {
   label: "How it works",
