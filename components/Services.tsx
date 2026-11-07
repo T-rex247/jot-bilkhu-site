@@ -81,7 +81,6 @@ export default function Services() {
           <div className="si border-t border-rule py-8 lg:col-span-4 lg:border-t-0 lg:pl-10" style={{ ["--si-d" as string]: "0.12s" }}>
             <span className="spec-label">{BIZ.worldsLabel}</span>
             <p className="display mt-5 text-3xl text-white">{BIZ.ownerLed}</p>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/90">{BIZ.openDoor}</p>
             <p className="mt-5 text-[13px] text-grey"><span className="counter mr-2 text-grey-dim">{BIZ.soFarLabel.toUpperCase()}</span>{WORLDS.join(" · ")}</p>
           </div>
         </div>

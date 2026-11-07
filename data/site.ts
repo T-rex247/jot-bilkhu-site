@@ -17,10 +17,10 @@ export const BIZ = {
   bookHref: "https://calendar.app.google/59wPznXmLWFra3iL7",
   cta: "Start with an Operating Review",
   ctaNote: "On me. A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.",
-  h1: "I build owner-led businesses their entire operating system — custom to exactly how you run.",
-  tagline: "Custom software for small and mid-sized businesses, built around the way you actually run.", // Jot msg 6231, 2026-11-04 (his words)
+  h1: "I build owner-led businesses their entire operating system, piece by piece.",
+  tagline: "For owners who know they should automate but have no idea where to start.", // Sunjeet's words, Jot msg 6329/6331/6333 (was: "Custom software for small and mid-sized businesses, built around the way you actually run.")
   forWho: "For owner-led service businesses still running on paper, spreadsheets and one person’s memory.",
-  sub: "I sit with you, learn how your business actually runs, and build the system that runs it, so the business stops living in your head and you get your time back.", // time-back, Jot msg 6301/6307, 2026-11-05
+  sub: "I sit with you, learn how your business runs, and build software that does the manual work for you. You get your time back.", // Jot msg 6342, 2026-11-06 (plain language, msg 6340)
 };
 
 export const DAY = {
@@ -214,7 +214,7 @@ export const FAQ = {
 };
 
 export const HERO_HEAD = "I build owner-led businesses";
-export const HERO_ACCENT = "their entire operating system.";
+export const HERO_ACCENT = "their entire operating system, piece by piece."; // Jot msg 6331
 
 export const HERO_STEPS = [
   { tone: "tone-review", stage: "Operating review",
