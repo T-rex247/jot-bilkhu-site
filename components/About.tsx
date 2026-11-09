@@ -1,15 +1,17 @@
 import { UI, ABOUT } from "@/data/site";
-import { KineticHeading, SectionHead } from "./primitives";
+import { KineticHeading, SectionHead, Parallax } from "./primitives";
 
 /* Existing portrait and copy, with three light thread cards. */
 export default function About() {
   return (
-    <section id="about" className="sec-light relative overflow-hidden border-t border-rule bg-black">
+    <section id="about" aria-label={ABOUT.label} className="sec-light relative overflow-hidden border-t border-rule bg-black">
       <div className="mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-12">
         <div className="border-b border-rule lg:col-span-5 lg:border-b-0 lg:border-r">
           <figure className="plate img-card relative aspect-[4/5] !border-0 lg:h-full lg:min-h-[78svh]">
+            <Parallax speed={-0.035} className="absolute -inset-y-10 inset-x-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/jot-headshot.jpg" alt={UI.aboutAlt} width={1280} height={1219} loading="eager" className="absolute inset-0 h-full w-full object-cover" />
+            <img src="/jot-headshot.jpg" alt={UI.aboutAlt} width={1280} height={1219} loading="lazy" decoding="async" className="si portrait-reveal absolute inset-0 h-full w-full object-cover" />
+            </Parallax>
             <div className="plate-scrim" />
             <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6">
               <div>

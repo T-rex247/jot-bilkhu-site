@@ -1,3 +1,4 @@
+import { Parallax } from "./primitives";
 import { UI, BIZ, HERO_HEAD, HERO_ACCENT, HERO_STEPS } from "@/data/site";
 
 /**
@@ -12,15 +13,17 @@ export default function Hero() {
   const words = HERO_HEAD.split(" ");
   return (
     <>
-      <section id="top" className="hero relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-black">
-        {/* PERMANENT visible base keyframe — never animated, never hidden (globals: .hero img:first-child) */}
-        <picture>
+      <section id="top" aria-label={BIZ.h1} className="hero relative min-h-[100svh] w-full overflow-hidden bg-black">
+        {/* The image stays opaque; separate wrappers compose drift and scroll translation. */}
+        <Parallax speed={-0.045} className="absolute -inset-10">
+        <picture className="hero-drift absolute inset-0 block">
           <source media={TALL} srcSet="/hero/p1.webp" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/hero/k1-1920.webp" srcSet="/hero/k1-1920.webp 1920w, /hero/k1.webp 2560w" sizes="100vw"
             alt={UI.heroAlt}
-            fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
+            width={2560} height={1440} loading="eager" decoding="async" fetchPriority="high" className="absolute inset-0 h-full w-full object-cover" />
         </picture>
+        </Parallax>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/5 opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/15 to-transparent" />
 
@@ -28,7 +31,7 @@ export default function Hero() {
           <span className="counter hud absolute right-8 top-24 text-[0.72rem] font-semibold" style={{ color: "#9fd0aa" }}>{BIZ.city.toUpperCase()}</span>
         </div>
 
-        <div className="relative z-10 mx-auto flex h-full max-w-[1440px] flex-col justify-end px-5 pb-12 sm:px-8 sm:pb-16">
+        <div className="hero-content relative z-10 mx-auto flex min-h-[100svh] max-w-[1440px] flex-col justify-end px-5 pt-28 pb-12 sm:px-8 sm:pb-16">
           <div className="hero-panel edge max-w-[62rem] p-5 sm:p-8 lg:p-10">
             <h1 className="display max-w-5xl text-[clamp(2.7rem,6.4vw,6.6rem)] text-white" style={{ textShadow: "0 2px 30px rgba(0,0,0,.6)" }}>
               {words.map((w, i) => (<span key={i}><span className="rvw inline-block" style={{ ["--rv-d" as string]: `${i * 0.05}s` }}>{w}</span>{" "}</span>))}
@@ -50,13 +53,14 @@ export default function Hero() {
             <p className="mt-4 max-w-md text-[13px] text-grey">{BIZ.ctaNote}</p>
           </div>
         </div>
+        <div className="scroll-cue" aria-hidden><span /></div>
       </section>
 
       {/* chapters 2–4 as a compact stacked list, no pictures (Jot 2026-10-30, msg 6058): stage, headline, one line of copy per row */}
       <section aria-label={UI.heroAria} className="bg-black">
         <ol className="mx-auto max-w-[1440px] px-5 py-10 sm:px-8 sm:py-14">
           {HERO_STEPS.map((s, i) => (
-            <li key={s.stage} className={`si ${s.tone} grid grid-cols-1 gap-3 border-t border-white/10 py-6 first:border-t-0 md:grid-cols-[13rem_minmax(0,1fr)_minmax(0,1fr)] md:items-baseline md:gap-8`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
+            <li key={s.stage} className={`si hero-step ${s.tone} grid grid-cols-1 gap-3 border-t border-white/10 py-6 first:border-t-0 md:grid-cols-[13rem_minmax(0,1fr)_minmax(0,1fr)] md:items-baseline md:gap-8`} style={{ ["--si-d" as string]: `${i * 0.1}s` }}>
               <div className="flex items-center gap-3">
                 <span className="tone-pill">{s.stage}</span>
               </div>

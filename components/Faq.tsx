@@ -3,7 +3,7 @@ import { KineticHeading, SectionHead } from "./primitives";
 
 export default function Faq() {
   return (
-    <section id="faq" className="sec-light sec-grid border-t border-rule py-16 sm:py-24">
+    <section id="faq" aria-label={FAQ.label} className="sec-light sec-grid border-t border-rule py-16 sm:py-24">
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <SectionHead n="07" label={FAQ.label} />
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_2fr] lg:gap-16">

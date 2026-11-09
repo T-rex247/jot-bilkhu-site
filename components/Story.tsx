@@ -4,7 +4,7 @@ import { Parallax, KineticHeading, SectionHead } from "./primitives";
 /* 02 — "My story": the foundation-site plate edge-to-edge on the right, stark type block on the left, the pull-quote oversized. */
 export default function Story() {
   return (
-    <section id="story" className="relative overflow-hidden border-t border-rule bg-black">
+    <section id="story" aria-label={STORY.label} className="relative overflow-hidden border-t border-rule bg-black">
       <div className="grid grid-cols-1 lg:grid-cols-12">
         <div className="order-2 mx-auto w-full max-w-[1440px] px-5 py-16 sm:px-8 sm:py-24 lg:order-1 lg:col-span-6 lg:pr-14">
           <SectionHead n="02" label={STORY.label} className="max-w-xs" />
@@ -21,7 +21,7 @@ export default function Story() {
           <Parallax speed={-0.05} className="h-full">
             <figure className="plate img-card relative h-[56svh] border-0 border-b border-rule lg:h-full lg:min-h-[80svh] lg:border-b-0 lg:border-l">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/concept/story.webp" alt={UI.storyAlt} loading="eager" className="absolute inset-0 h-full w-full object-cover" />
+              <img src="/concept/story.webp" alt={UI.storyAlt} loading="lazy" decoding="async" className="si image-wipe absolute inset-0 h-full w-full object-cover" />
               <div className="plate-scrim" />
               <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-6">
                 <span className="max-w-sm text-[13px] text-white/80">{UI.storyCaption}</span>

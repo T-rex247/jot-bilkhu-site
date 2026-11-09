@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UI, BIZ, SERVICES, RULES, WORLDS } from "@/data/site";
 import { KineticHeading, SectionHead } from "./primitives";
 
@@ -8,9 +8,10 @@ import { KineticHeading, SectionHead } from "./primitives";
    bottom-left, its items as a rule-grid. Every item verbatim from the live page. */
 export default function Services() {
   const [active, setActive] = useState(0);
-  const g = SERVICES[active];
+  const [enhanced, setEnhanced] = useState(false);
+  useEffect(() => setEnhanced(true), []);
   return (
-    <section id="services" className="relative overflow-hidden border-t border-rule bg-black py-16 sm:py-24">
+    <section data-enhanced={enhanced} id="services" aria-label={UI.servicesLabel} className="relative overflow-hidden border-t border-rule bg-black py-16 sm:py-24">
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8">
         <SectionHead n="04" tone="build" label={UI.servicesLabel} className="max-w-xs" />
         <div className="mt-8 grid gap-8 lg:grid-cols-12">
@@ -20,25 +21,25 @@ export default function Services() {
 
         <div className="mt-14 grid grid-cols-1 border-t border-rule lg:grid-cols-12">
           {/* selector */}
-          <ol className="lg:col-span-5 lg:border-r lg:border-rule" role="tablist" aria-label={UI.serviceGroups}>
+          <ol className="lg:col-span-5 lg:border-r lg:border-rule" aria-label={UI.serviceGroups}>
             {SERVICES.map((s, i) => {
               const on = i === active;
               return (
                 <li key={s.id} className="si border-b border-rule" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
-                  <button role="tab" aria-selected={on} aria-controls={`svc-${s.id}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} onClick={() => setActive(i)}
-                    className={`group relative w-full py-6 pr-4 text-left transition-colors duration-300 lg:pr-8 ${on ? "text-white" : "text-grey hover:text-white"}`}>
+                  <button aria-pressed={on} aria-controls={`svc-${s.id} svc-mobile-${s.id}`} onPointerEnter={e => { if (e.pointerType === "mouse" && window.matchMedia("(hover: hover)").matches) setActive(i); }} onFocus={() => setActive(i)} onClick={() => setActive(i)}
+                    className={`group relative w-full py-6 pr-4 text-left lg:pr-8 ${on ? "text-white" : "text-grey hover:text-white"}`}>
                     <span className={`absolute left-0 top-0 h-full w-px bg-white transition-transform duration-500 origin-top ${on ? "scale-y-100" : "scale-y-0"}`} aria-hidden />
-                    <div className="flex items-baseline gap-5 pl-5">
+                    <span className="flex items-baseline gap-5 pl-5">
                       <span className="counter text-grey">{s.n}</span>
                       <span className="display text-[clamp(1.7rem,2.8vw,2.6rem)]">{s.name}</span>
                       <span className={`ml-auto display text-xl transition-transform duration-300 ${on ? "translate-x-0 text-white" : "-translate-x-2 text-grey-dim"}`} aria-hidden>→</span>
-                    </div>
-                    <p className={`pl-5 text-[14px] leading-relaxed text-grey transition-all duration-500 ${on ? "mt-3 max-h-24 opacity-100" : "max-h-0 overflow-hidden opacity-0 lg:mt-3 lg:max-h-24 lg:opacity-100"}`}>{s.outcome}</p>
-                    {/* mobile: items inline under the active group */}
-                    <ul className={`mt-4 space-y-2 pl-5 lg:hidden ${on ? "block" : "hidden"}`}>
-                      {s.items.map((it) => <li key={it.t} className="card flex gap-3 p-4 text-[14.5px] text-white"><span className="mt-[10px] h-px w-3 shrink-0 bg-white/60" />{it.t}</li>)}
-                    </ul>
+                    </span>
+                    <span className="mt-3 block pl-5 text-[14px] leading-relaxed text-grey">{s.outcome}</span>
                   </button>
+                  {/* Every item is server-rendered. Without JS every group stays expanded. */}
+                  <ul id={`svc-mobile-${s.id}`} className={`service-mobile mb-6 space-y-2 pl-5 lg:hidden ${enhanced && !on ? "service-inactive" : ""}`}>
+                    {s.items.map((it, k) => <li key={it.t} className="si card flex gap-3 p-4 text-[14.5px] text-white" style={{ ["--si-d" as string]: `${k * 0.06}s` }}><span className="mt-[10px] h-px w-3 shrink-0 bg-white/60" />{it.t}</li>)}
+                  </ul>
                 </li>
               );
             })}
@@ -46,27 +47,27 @@ export default function Services() {
 
           {/* detail panel (desktop) */}
           <div className="hidden lg:col-span-7 lg:block">
-            <div id={`svc-${g.id}`} role="tabpanel" className="sticky top-20">
+            {SERVICES.map((g, i) => (
+            <div key={g.id} id={`svc-${g.id}`} role="region" aria-label={g.name} hidden={enhanced && i !== active} className="service-panel sticky top-24">
               <div className="plate relative aspect-[16/8] border-b border-rule">
-                {SERVICES.map((s, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img key={s.id} src={s.plate} alt="" aria-hidden={i !== active} loading="eager" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${i === active ? "opacity-100" : "opacity-0"}`} style={i === 0 ? { opacity: i === active ? 1 : 0 } : undefined} />
-                ))}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={g.plate} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
                 <div className="plate-scrim" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <span className="counter text-grey">{g.n} — {g.name.toUpperCase()}</span>
-                  <p key={g.id} className="rv display-light mt-2 text-[clamp(1.3rem,2vw,1.9rem)] text-white">{g.outcome}</p>
+                  <p className="rv display-light mt-2 text-[clamp(1.3rem,2vw,1.9rem)] text-white">{g.outcome}</p>
                 </div>
               </div>
-              <ul key={`list-${g.id}`} className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2 [&>li:last-child:nth-child(odd)]:sm:col-span-2">
+              <ul className="grid grid-cols-1 gap-3 p-4 sm:grid-cols-2 [&>li:last-child:nth-child(odd)]:sm:col-span-2">
                 {g.items.map((it, k) => (
-                  <li key={it.t} className="rv card p-5" style={{ ["--rv-d" as string]: `${k * 0.06}s`, ["--rv-y" as string]: "12px" }}>
+                  <li key={it.t} className="rv card polish-card p-5" style={{ ["--rv-d" as string]: `${k * 0.06}s`, ["--rv-y" as string]: "12px" }}>
                     <p className="text-[14.5px] font-medium leading-snug text-white">{it.t}</p>
                     <p className="counter mt-2 text-[0.6rem] text-grey-dim">{it.from.toUpperCase()}</p>
                   </li>
                 ))}
               </ul>
             </div>
+            ))}
           </div>
         </div>
 
