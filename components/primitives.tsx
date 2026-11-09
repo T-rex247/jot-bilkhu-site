@@ -1,14 +1,15 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useInView } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { motionReduced } from "./motion";
 
 export function useReducedMotion() {
-  const [rm, setRm] = useState(false);
+  const [rm, setRm] = useState(true);
   useEffect(() => {
     const m = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const h = () => setRm(m.matches || localStorage.getItem("jot:reduceMotion") === "1");
-    h(); m.addEventListener("change", h); window.addEventListener("jot:rm", h);
-    return () => { m.removeEventListener("change", h); window.removeEventListener("jot:rm", h); };
+    const h = () => setRm(motionReduced());
+    h(); m.addEventListener("change", h); window.addEventListener("jot:rm", h); window.addEventListener("storage", h);
+    return () => { m.removeEventListener("change", h); window.removeEventListener("jot:rm", h); window.removeEventListener("storage", h); };
   }, []);
   return rm;
 }
@@ -20,7 +21,7 @@ export function Magnetic({ children, className, href, radius = 70 }: { children:
   const x = useMotionValue(0), y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 60, damping: 18 }), sy = useSpring(y, { stiffness: 60, damping: 18 });
   function onMove(e: React.MouseEvent) {
-    if (rm || !ref.current) return;
+    if (rm || !ref.current || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const r = ref.current.getBoundingClientRect();
     const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
     if (Math.hypot(dx, dy) < radius + r.width / 2) { x.set(dx * 0.22); y.set(dy * 0.22); }
@@ -32,22 +33,9 @@ export function Magnetic({ children, className, href, radius = 70 }: { children:
   );
 }
 
-/** Count-up — the FINAL value is in the DOM from SSR; only animates when in view + motion allowed. */
+/** Keep stated numbers stable, including for crawlers and reduced motion. */
 export function CountUp({ to, suffix = "", prefix = "", className, decimals = 0 }: { to: number; suffix?: string; prefix?: string; className?: string; decimals?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const rm = useReducedMotion();
-  const [n, setN] = useState(to);
-  const started = useRef(false);
-  useEffect(() => {
-    if (!inView || rm || started.current) return;
-    started.current = true;
-    const start = performance.now(), dur = 1400; let raf = 0;
-    const tick = (t: number) => { const p = Math.min((t - start) / dur, 1); setN((1 - Math.pow(1 - p, 3)) * to); if (p < 1) raf = requestAnimationFrame(tick); else setN(to); };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, to, rm]);
-  return <span ref={ref} className={className}>{prefix}{n.toLocaleString(undefined, { maximumFractionDigits: decimals, minimumFractionDigits: decimals })}{suffix}</span>;
+  return <span className={className}>{prefix}{to.toLocaleString("en-US", { maximumFractionDigits: decimals, minimumFractionDigits: decimals })}{suffix}</span>;
 }
 
 /** Reveal-on-mount wrapper — CSS base-visible (.rv); never stalls invisible. */
@@ -63,7 +51,7 @@ export function KineticHeading({ text, className, accent, accentClass = "block a
       {words.map((w, i) => (
         <span key={i}><span aria-hidden className="rvw inline-block" style={{ ["--rv-d" as string]: `${i * 0.05}s` }}>{w}</span>{i < words.length - 1 ? " " : ""}</span>
       ))}
-      {accent && <span aria-hidden className={`rvw ${accentClass}`} style={{ ["--rv-d" as string]: `${words.length * 0.05}s` }}>{accent}</span>}
+      {accent && <> <span aria-hidden className={`rvw ${accentClass}`} style={{ ["--rv-d" as string]: `${words.length * 0.05}s` }}>{accent}</span></>}
     </Tag>
   );
 }
@@ -83,19 +71,22 @@ export function Parallax({ children, speed = 0.18, className }: { children: Reac
   const ref = useRef<HTMLDivElement>(null);
   const rm = useReducedMotion();
   useEffect(() => {
-    if (rm) return;
     const el = ref.current; if (!el) return;
+    if (rm) { el.style.transform = "none"; return; }
     let raf = 0, queued = false;
     const apply = () => {
       queued = false;
-      const r = el.getBoundingClientRect();
+      // Measure the stationary parent, never our own transformed position.
+      const r = (el.parentElement ?? el).getBoundingClientRect();
       const vh = window.innerHeight;
+      if (r.bottom < 0 || r.top > vh) return;
       const center = r.top + r.height / 2 - vh / 2;
-      el.style.transform = `translate3d(0, ${(-center * speed).toFixed(1)}px, 0)`;
+      const offset = Math.max(-32, Math.min(32, -center * speed));
+      el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
     };
     const on = () => { if (!queued) { queued = true; raf = requestAnimationFrame(apply); } };
     apply(); window.addEventListener("scroll", on, { passive: true }); window.addEventListener("resize", on);
     return () => { cancelAnimationFrame(raf); window.removeEventListener("scroll", on); window.removeEventListener("resize", on); };
   }, [speed, rm]);
-  return <div ref={ref} className={`will-change-transform ${className ?? ""}`}>{children}</div>;
+  return <div ref={ref} className={`parallax ${className ?? ""}`}>{children}</div>;
 }

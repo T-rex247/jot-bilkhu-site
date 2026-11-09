@@ -4,12 +4,12 @@ import { Magnetic, KineticHeading, Parallax, SectionHead } from "./primitives";
 /* Closing photo plate followed by three labelled contact cards. */
 export default function Closing() {
   return (
-    <section id="book" className="relative overflow-hidden border-t border-rule bg-black">
+    <section id="book" aria-label={UI.closingLabel} className="relative overflow-hidden border-t border-rule bg-black">
       <div className="plate relative min-h-[92svh] text-white">
         <Parallax speed={-0.06} className="absolute inset-0">
           <div className="absolute -inset-y-16 inset-x-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/concept/close.webp" alt="" aria-hidden loading="eager" className="kenburns h-full w-full object-cover" />
+            <img src="/concept/close.webp" alt="" aria-hidden loading="lazy" decoding="async" className="kenburns h-full w-full object-cover" />
           </div>
         </Parallax>
         <div className="plate-scrim" />
@@ -19,7 +19,7 @@ export default function Closing() {
           <KineticHeading as="h2" text={UI.closingHeading} accent={UI.closingAccent} className="display mt-8 max-w-5xl text-[clamp(2.8rem,8vw,7.6rem)] text-white" />
           <p className="si mt-7 max-w-2xl text-[16px] leading-relaxed text-white/85">{CLOSING.p}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Magnetic href={BIZ.bookHref} className="btn btn-solid w-full sm:w-auto">{BIZ.cta}</Magnetic>
+            <Magnetic href={BIZ.bookHref} className="btn btn-solid ambient-cta w-full sm:w-auto">{BIZ.cta}</Magnetic>
             <a href={BIZ.phoneHref} className="btn btn-ghost w-full sm:w-auto">{UI.callPrefix} {BIZ.phone}</a>
           </div>
           <p className="mt-5 max-w-md text-[13px] text-grey">{BIZ.ctaNote}</p>

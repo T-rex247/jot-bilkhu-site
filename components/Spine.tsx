@@ -28,11 +28,11 @@ export default function Spine({ labels = ["01", "02", "03"], className = "" }: {
   return (
     <div ref={ref} className={`pointer-events-none absolute bottom-0 top-0 z-10 w-5 lg:w-10 ${className}`} aria-hidden>
       <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-white/12" />
-      <div ref={lineRef} className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 origin-top bg-white" style={{ transform: "scaleY(0)" }} />
+      <div ref={lineRef} className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 origin-top bg-white" style={{ transform: "scaleY(1)" }} />
       {labels.map((l, i) => (
-        <span key={l} data-node={(i / Math.max(1, nodes - 1)) * 0.92 + 0.04} className="spine-node absolute left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 transition-all duration-500 lg:flex" style={{ top: `${(i / Math.max(1, nodes - 1)) * 92 + 4}%` }}>
-          <span className="spine-dot block h-2 w-2 border border-white/40 bg-black transition-all duration-500" />
-          <span className="counter spine-lbl hidden text-[0.62rem] text-white/35 transition-colors duration-500 lg:block">{l}</span>
+        <span key={l} data-node={(i / Math.max(1, nodes - 1)) * 0.92 + 0.04} className="spine-node absolute left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 transition-opacity duration-500 lg:flex" style={{ top: `${(i / Math.max(1, nodes - 1)) * 92 + 4}%` }}>
+          <span className="spine-dot block h-2 w-2 border border-white/40 bg-black transition-opacity duration-500" />
+          <span className="counter spine-lbl hidden text-[0.62rem] text-white/35 transition-opacity duration-500 lg:block">{l}</span>
         </span>
       ))}
       <style>{`.spine-node.is-lit .spine-dot{border-color:var(--white);background:var(--white);box-shadow:0 0 0 5px var(--rule)}.spine-node.is-lit .spine-lbl{color:var(--white)}`}</style>

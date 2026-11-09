@@ -25,9 +25,9 @@ function Chapter({ s }: { s: Study }) {
             <div className="grid grid-cols-1 gap-px bg-rule border border-rule sm:grid-cols-2">
               {s.shots.map((sh, k) => (
                 <figure key={sh.src} className="si img-card !border-0 bg-black" style={{ ["--si-d" as string]: `${k * 0.08}s` }}>
-                  <div className="relative aspect-[16/10]">
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={sh.src} alt={sh.alt} loading="eager" className="absolute inset-0 h-full w-full object-cover" />
+                    <img src={sh.src} alt={sh.alt} loading="lazy" decoding="async" className="si image-wipe absolute inset-0 h-full w-full object-cover" />
                   </div>
                   <figcaption className="flex items-start justify-between gap-4 border-t border-rule px-4 py-3">
                     <span className="text-[12.5px] leading-snug text-grey">{sh.cap}</span>
@@ -38,7 +38,7 @@ function Chapter({ s }: { s: Study }) {
             </div>
             <ul className="mt-8 grid gap-4 sm:grid-cols-3">
               {s.results.map((r, k) => (
-                <li key={k} className="si card flex flex-col p-5" style={{ ["--si-d" as string]: `${0.15 + k * 0.1}s` }}>
+                <li key={k} className="si card polish-card flex flex-col p-5" style={{ ["--si-d" as string]: `${0.15 + k * 0.1}s` }}>
                   {r.num !== undefined
                     ? <div className="num text-[clamp(3.4rem,6vw,5.6rem)] text-white"><CountUp to={r.num} /><span className="counter ml-2 align-middle text-[0.72rem] text-grey">{r.suffix?.trim().toUpperCase()}</span></div>
                     : <span className="counter text-grey-dim">{s.n}.R{k + 1}</span>}
@@ -60,7 +60,7 @@ function Chapter({ s }: { s: Study }) {
 
 export default function Work() {
   return (
-    <section id="work" className="sec-light relative border-t border-rule bg-black">
+    <section id="work" aria-label={UI.workLabel} className="sec-light relative border-t border-rule bg-black">
       <div className="mx-auto max-w-[1440px] px-5 pt-16 pb-12 sm:px-8 sm:pt-24 lg:pl-24">
         <SectionHead n="03" tone="run" label={UI.workLabel} className="max-w-xs" />
         <KineticHeading as="h2" text={UI.workHeading} accent={UI.workAccent} className="display mt-8 max-w-5xl text-[clamp(2.6rem,6.4vw,6.2rem)] text-white" />

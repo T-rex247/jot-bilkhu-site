@@ -1,0 +1,145 @@
+# Jot Bilkhu — Custom Software Studio
+
+https://jot-studio-v2.vercel.app
+
+I build owner-led businesses their entire operating system, piece by piece.
+
+For owners who know they should automate but have no idea where to start.
+
+I sit with you, learn how your business runs, and build software that does the manual work for you. You get your time back.
+
+## About me
+
+I’m Jot Bilkhu (pronounced “joe-th”), short for Gurjot. I live in Skokie, just outside Chicago. Before software I was a coach, and I still make art at House of Paradox. What ties it together: I listen to how people actually work, then build the thing that fits. I’d rather make things than sell them, so most of my work comes from people I’ve already built for.
+
+## What I build
+
+### Win the work
+
+Price a job the way the owner does — and let anyone on the team do it the same way.
+
+- Estimating
+
+- Bidding
+
+- A site-diagram canvas made for the trade
+
+- Owner approval before anything is scheduled
+
+- The owner’s pricing method, written down and repeatable
+
+### Get paid
+
+From signed to paid without a filing cabinet — and the paperwork sends itself.
+
+- Contracts
+
+- E-signatures — customers sign and pay from a link, no account
+
+- Invoicing
+
+- Live card payments · Stripe checkout
+
+- Receipts and warranty certificates that deliver themselves, with a log that proves it
+
+### Run the day
+
+The schedule lives in the system, not in one person’s head.
+
+- Scheduling — the crew schedule, every job on the calendar, 811 dig checks flagged
+
+- Sign-ups, confirmations, calendar invites and reminder emails that run themselves
+
+- Automatic print-on-demand fulfillment
+
+- An admin panel your own people run, with the instructions built in
+
+### Automate the rest
+
+The parts of the business that should happen on their own, do.
+
+- Content that translates itself on save — English, Spanish, Portuguese
+
+- A members-only depository that manages its own access keys
+
+- Content screening on every piece
+
+- An engine that runs your actual process, staged and tuned until you sign off
+
+## How it works
+
+### 1. Operating Review.
+
+One conversation where I map where your time and money leak. You keep the map either way.
+
+### 2. Build.
+
+One piece at a time, built in weeks, not months, starting with the piece that pays for itself first. You see that first piece working on your real work before you pay for it.
+
+### 3. Run it together.
+
+I stay on, fix what comes up, and add to it as the business changes.
+
+## Your first working piece includes
+
+- On your own web address
+
+It lives at your business’s address, not a demo link.
+
+- One core job, end to end
+
+For example, pricing a bid, start to finish.
+
+- Your team logs in and uses it
+
+Real accounts for the people who do the work.
+
+- One round of changes
+
+You use it, tell me what’s off, I fix it.
+
+- Yours once it’s paid for
+
+You own the system and the code.
+
+You see all of it working on your real work before you pay.
+
+## Questions
+
+### Who will I be working with?
+
+Me. This is my studio. I have engineers behind me on the bigger builds, but you deal with me from the first conversation through the hand-off, and after.
+
+### What if you’re unavailable?
+
+You’re not stuck. The hand-off is part of the build: your own people run it from an admin panel with the instructions built in, so nobody has to call a developer.
+
+### Do I have to drop QuickBooks or whatever I use now?
+
+Not up front. I build one piece at a time, so what you use today keeps running until the new piece is ready to take over.
+
+### How can a custom system be realistic for a business my size?
+
+Because the way software gets built has changed. I work with engineers and modern AI build tools, so a system that used to take a development team many months now comes together piece by piece in weeks. You start using the first piece while the next one is being built.
+
+### What do I actually get back?
+
+Your time, first. The hours spent re-typing, chasing and answering the same questions come off your plate, and the business stops depending on one person’s memory. The Operating Review shows you where those hours go, so you know what you’d get back before anything is built.
+
+### What does it cost?
+
+The Operating Review is free. It’s a conversation, not a pitch. If there’s something worth building, I build it one piece at a time, starting with the piece that pays for itself, and you see that first piece working before you pay for it.
+
+## Start with an Operating Review
+
+On me. A conversation about how your business actually runs. You leave with a map of where your time and money go, yours to keep.
+
+https://calendar.app.google/59wPznXmLWFra3iL7
+
+Jot Bilkhu
+
+Skokie, IL · Chicago area
+
+(513) 919-5236
+
+gurjotbilkhu@gmail.com

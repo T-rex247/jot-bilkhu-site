@@ -4,7 +4,7 @@ import { KineticHeading, SectionHead } from "./primitives";
 /* The day: light type panel, existing photo and four rounded pain cards. */
 export default function Day() {
   return (
-    <section id="day" className="sec-light relative overflow-hidden bg-black">
+    <section id="day" aria-label={DAY.label} className="sec-light relative overflow-hidden bg-black">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-5 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-2 lg:items-center">
         <div>
           <SectionHead n="01" tone="problem" label={DAY.label} />
@@ -12,14 +12,14 @@ export default function Day() {
         </div>
         <figure className="plate img-card relative aspect-[4/3] rounded-[14px]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/concept/day.webp" alt={UI.dayAlt} loading="eager" className="kenburns absolute inset-0 h-full w-full object-cover" />
+          <img src="/concept/day.webp" alt={UI.dayAlt} loading="lazy" decoding="async" className="kenburns absolute inset-0 h-full w-full object-cover" />
           <div className="plate-scrim" />
         </figure>
       </div>
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8">
         <ol className="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
           {DAY.lines.map((l, i) => (
-            <li key={i} className="si card p-6 lg:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
+            <li key={i} className="si card polish-card tone-problem p-6 lg:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
               <span className="counter text-white">0{i + 1}</span>
               <p className="mt-4 text-[16px] leading-relaxed text-white/90">{l}</p>
             </li>
@@ -31,7 +31,7 @@ export default function Day() {
         <p className="counter pt-2 text-[0.72rem] tracking-[0.18em] text-white/70">{DAY.afterLabel.toUpperCase()}</p>
         <ol className="grid grid-cols-1 gap-4 py-6 sm:grid-cols-2 lg:grid-cols-4">
           {DAY.after.map((l, i) => (
-            <li key={i} className="si card day-after p-6 lg:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
+            <li key={i} className="si card polish-card day-after tone-run p-6 lg:py-8" style={{ ["--si-d" as string]: `${i * 0.08}s` }}>
               <span className="counter accent-text">0{i + 1}</span>
               <p className="mt-4 text-[16px] leading-relaxed text-white/90">{l}</p>
             </li>
