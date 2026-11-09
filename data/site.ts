@@ -30,8 +30,8 @@ export const SITE = {
     startHref: "#start",
   },
   opening: {
-    heading: "Do you want to automate your business, but don't know where to start?",
-    body: "I help business owners get their time back.",
+    heading: "I help small businesses automate.",
+    body: "If you want to automate your manual workflows and don't know how — you're in the right place.",
   },
   what: {
     heading: "What is this?",
