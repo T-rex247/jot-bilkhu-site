@@ -71,7 +71,6 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 .type-cursor { display: inline-block; width: .11em; height: .82em; margin-left: .12em; background: var(--warm); vertical-align: -.02em; animation: cursor 1s steps(1) 4; opacity: 0; }
 @keyframes cursor { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 .opening-subtitle { max-width: 640px; margin-top: 34px; font-size: clamp(1.05rem, 1.65vw, 1.4rem); line-height: 1.55; color: #80d1c1; }
-.opening-honey { color: #ebb84a; }
 .scroll-cue { display: flex; align-items: center; gap: 15px; width: fit-content; min-height: 44px; position: absolute; bottom: 45px; font-size: 11px; letter-spacing: .07em; color: #dedbcf; }
 .scroll-cue > span:last-child { font-size: 18px; animation: cue 2.8s ease-in-out infinite; }
 .scroll-line { display: block; width: 42px; height: 1px; background: rgba(232, 177, 135, .7); }

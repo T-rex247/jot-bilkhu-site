@@ -31,8 +31,7 @@ export const SITE = {
   },
   opening: {
     heading: "I help small businesses automate.",
-    body: "If you want to automate your manual workflows and don't know how —",
-    bodyAccent: "you're in the right place.",
+    body: "If you want to automate your manual workflows and don't know how — you're in the right place.",
   },
   what: {
     heading: "What is this?",
