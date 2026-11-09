@@ -1,6 +1,6 @@
 import Image from "next/image";
 import RoomBackground from "@/components/RoomBackground";
-import { MagneticLink, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
+import { MagneticLink, NewWorld, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
 import { SITE as s } from "@/data/site";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -31,17 +31,16 @@ export default function Page() {
             <h1 id="opening-heading"><Typewriter text={s.opening.heading} /></h1>
             <Reveal delay={0.2}><p className="opening-subtitle">{s.opening.body}</p></Reveal>
           </div>
-          <a href={s.ui.scrollHref} className="scroll-cue"><span className="scroll-line" aria-hidden="true" />{s.ui.scroll}<span aria-hidden="true">↓</span></a>
+          <a href={s.ui.scrollHref} className="scroll-cue"><span className="scroll-line" aria-hidden="true" /><span className="outcome-text">{s.ui.scroll}</span><span className="outcome-arrow" aria-hidden="true">↓</span></a>
           <div className="opening-corners" aria-hidden="true" />
         </section>
 
+        <NewWorld>
         <section id="what" className="what-section shell section" aria-labelledby="what-heading">
-          <Reveal className="what-paper">
-            <SectionMark number="01" />
-            <h2 id="what-heading" className="serif">{s.what.heading}</h2>
-            <p>{s.what.body}</p>
-            <span className="paper-corner" aria-hidden="true" />
+          <Reveal className="outcome-block">
+            <h2 id="what-heading" className="outcome-heading">{s.what.heading}</h2>
           </Reveal>
+          <Reveal delay={0.12}><p className="outcome-body">{s.what.body}</p></Reveal>
         </section>
 
         <section id="how" className="how-section shell section" aria-labelledby="how-heading">
@@ -95,8 +94,9 @@ export default function Page() {
             </div>
           </div>
         </section>
+        <footer className="footer shell"><Reveal><p>{s.brand} · {s.location}</p><span>{new Date().getFullYear()}</span></Reveal></footer>
+        </NewWorld>
       </main>
-      <footer className="footer shell"><Reveal><p>{s.brand} · {s.location}</p><span>{new Date().getFullYear()}</span></Reveal></footer>
     </>
   );
 }

@@ -1,9 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { motion, useAnimationControls, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { motion, useAnimationControls, useMotionTemplate, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+// Below the fold is the "new world": motion there is quick and crisp.
+const snapEase = [0.16, 1, 0.3, 1] as const;
+const Fast = createContext(false);
 
 function useMotionPreference() {
   const preference = useReducedMotion();
@@ -18,6 +21,7 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
   const controls = useAnimationControls();
   const [ready, setReady] = useState(false);
   const reduced = useMotionPreference();
+  const fast = useContext(Fast);
 
   useEffect(() => {
     // SSR and the first client render are fully visible. Arm motion only on
@@ -35,8 +39,8 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
       className={`reveal ${className}`} initial={false} animate={controls}
       viewport={{ once: true, amount: 0.2 }}
       onViewportEnter={ready ? () => {
-        controls.set({ opacity: reduced ? 0.96 : 0.88, y: reduced ? 0 : 18 });
-        void controls.start({ opacity: 1, y: 0, transition: { duration: reduced ? 0.25 : 0.85, delay, ease } });
+        controls.set({ opacity: reduced ? 0.96 : fast ? 0 : 0.88, y: reduced ? 0 : fast ? 26 : 18 });
+        void controls.start({ opacity: 1, y: 0, transition: { duration: reduced ? 0.25 : fast ? 0.5 : 0.85, delay: fast ? delay * 0.6 : delay, ease: fast ? snapEase : ease } });
       } : undefined}
     >{children}</motion.div>
   );
@@ -139,5 +143,24 @@ export function Process({ steps }: { steps: readonly { title: string; body: stri
         </li>
       ))}
     </ol>
+  );
+}
+
+export function NewWorld({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const reduced = useMotionPreference();
+  // The clean surface rises over the desk: it starts inset with rounded
+  // shoulders and locks to full width as it reaches the top of the screen.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 0.15"] });
+  const side = useTransform(scrollYProgress, [0, 1], [6, 0]);
+  const radius = useTransform(scrollYProgress, [0, 1], [36, 0]);
+  const clip = useMotionTemplate`inset(0 ${side}vw 0 ${side}vw round ${radius}px ${radius}px 0 0)`;
+  return (
+    <Fast.Provider value={true}>
+      <motion.div ref={ref} className="new-world" style={reduced ? undefined : { clipPath: clip }}>
+        <span className="new-world-edge" aria-hidden="true" />
+        {children}
+      </motion.div>
+    </Fast.Provider>
   );
 }
