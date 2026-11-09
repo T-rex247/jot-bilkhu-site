@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RoomBackground from "@/components/RoomBackground";
+import Portal, { ComeInside } from "@/components/Portal";
 import { MagneticLink, NewWorld, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
 import { SITE as s } from "@/data/site";
 
@@ -14,7 +14,6 @@ function SectionMark({ number }: { number: string }) {
 export default function Page() {
   return (
     <>
-      <RoomBackground />
       <a className="skip-link" href={s.ui.mainHref}>{s.ui.skip}</a>
       <header className="topbar">
         <div className="topbar-inner">
@@ -25,15 +24,17 @@ export default function Page() {
         </div>
       </header>
       <main id="main">
+        <Portal>
         <section className="opening shell" aria-labelledby="opening-heading">
           <div className="opening-content">
             <span className="opening-rule" aria-hidden="true" />
             <h1 id="opening-heading"><Typewriter text={s.opening.heading} /></h1>
             <Reveal delay={0.2}><p className="opening-subtitle">{s.opening.body}</p></Reveal>
           </div>
-          <a href={s.ui.scrollHref} className="scroll-cue"><span className="scroll-line" aria-hidden="true" /><span className="outcome-text">{s.ui.scroll}</span><span className="outcome-arrow" aria-hidden="true">↓</span></a>
+          <ComeInside className="scroll-cue"><span className="scroll-line" aria-hidden="true" /><span className="outcome-text">{s.ui.scroll}</span><span className="outcome-arrow" aria-hidden="true">↓</span></ComeInside>
           <div className="opening-corners" aria-hidden="true" />
         </section>
+        </Portal>
 
         <NewWorld>
         <section id="what" className="what-section shell section" aria-labelledby="what-heading">

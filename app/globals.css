@@ -260,7 +260,7 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 
 /* ---------- The new world: everything below the fold ---------- */
 .room-dim { position: absolute; inset: 0; background: #070b0a; }
-.new-world { position: relative; color-scheme: light; color: #0f1916; --line: rgba(15, 25, 22, .09); --cool: #0f8f7a; padding-top: 28px; will-change: clip-path;
+.new-world { position: relative; color-scheme: light; color: #0f1916; --line: rgba(15, 25, 22, .09); --cool: #0f8f7a; padding-top: 28px;
   background-color: #f5f7f6; background-image: linear-gradient(rgba(15, 25, 22, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 25, 22, .035) 1px, transparent 1px); background-size: 72px 72px; background-position: center top; }
 .new-world-edge { position: absolute; inset: 0 0 auto; height: 3px; background: linear-gradient(90deg, #ebb84a, #80d1c1 55%, #14a38b); }
 .new-world ::selection { color: #fff; background: #14a38b; }
@@ -322,3 +322,32 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
   .outcome-heading { font-size: 2.55rem !important; line-height: 1.05; }
   .outcome-body { margin-top: 24px; font-size: 17px; }
 }
+
+/* ---------- The way in: spin, spark, inside out ---------- */
+.portal { position: relative; height: calc(100svh + 120vh); }
+.portal-still { height: auto; }
+.portal-stage { position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden; background: #0b0f0e; }
+.portal-still .portal-stage { position: relative; height: auto; }
+.portal-world { position: absolute; inset: 0; transform-origin: 50% 55%; will-change: transform, filter, opacity; }
+.portal .room { position: absolute; z-index: 0; }
+.portal .opening { position: relative; z-index: 1; height: 100%; min-height: 0; box-sizing: border-box; }
+.portal-still .opening { min-height: max(760px, 100svh); }
+.portal-fx { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.portal-fx > * { position: absolute; left: 50%; top: 50%; }
+.portal-spark { width: 26vmin; height: 26vmin; margin: -13vmin 0 0 -13vmin; border-radius: 50%; mix-blend-mode: screen;
+  background: radial-gradient(circle, #fff 0 7%, rgba(255, 246, 214, .95) 12%, rgba(235, 184, 74, .7) 26%, rgba(128, 209, 193, .45) 45%, transparent 70%);
+  box-shadow: 0 0 80px 30px rgba(235, 184, 74, .25), 0 0 160px 60px rgba(128, 209, 193, .18); will-change: transform, opacity; }
+.portal-rays { position: relative; width: 0; height: 0; mix-blend-mode: screen; will-change: transform, opacity; }
+.portal-rays span { position: absolute; left: 0; top: 0; border-radius: 4px; transform-origin: 0 50%;
+  background: linear-gradient(90deg, transparent, #fff3cf 40%, #80d1c1);
+  transform: rotate(var(--a)) translateX(calc(var(--burst) * var(--d))) scaleX(calc(.4 + var(--burst))); }
+.portal-rays span:nth-child(3n) { background: linear-gradient(90deg, transparent, #ebb84a 50%, #fff); }
+.portal-iris, .portal-ring { width: 170vmax; height: 170vmax; margin: -85vmax 0 0 -85vmax; border-radius: 50%; will-change: transform; }
+.portal-iris { background-color: #f5f7f6; background-image: linear-gradient(rgba(15,25,22,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(15,25,22,.035) 1px, transparent 1px); background-size: 72px 72px; background-position: center; }
+.portal-ring { width: 172vmax; height: 172vmax; margin: -86vmax 0 0 -86vmax; filter: blur(2px);
+  background: conic-gradient(from 0deg, #ebb84a, #fff3cf, #80d1c1, #14a38b, #ebb84a, #fff, #80d1c1, #ebb84a); }
+@media (max-width: 767px) { .portal .opening { padding-top: 120px; padding-bottom: 60px; } }
+.portal:not(.portal-still) { background-color: #f5f7f6; }
+.portal:not(.portal-still) .portal-stage { z-index: 1; }
+.portal:not(.portal-still) + .new-world { position: relative; z-index: 0; margin-top: -100svh; padding-top: 0; }
+.portal + .new-world .what-section { padding-top: 64px; }

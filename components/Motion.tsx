@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
-import { motion, useAnimationControls, useMotionTemplate, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useAnimationControls, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 // Below the fold is the "new world": motion there is quick and crisp.
@@ -147,20 +147,9 @@ export function Process({ steps }: { steps: readonly { title: string; body: stri
 }
 
 export function NewWorld({ children }: { children: ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduced = useMotionPreference();
-  // The clean surface rises over the desk: it starts inset with rounded
-  // shoulders and locks to full width as it reaches the top of the screen.
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "start 0.15"] });
-  const side = useTransform(scrollYProgress, [0, 1], [6, 0]);
-  const radius = useTransform(scrollYProgress, [0, 1], [36, 0]);
-  const clip = useMotionTemplate`inset(0 ${side}vw 0 ${side}vw round ${radius}px ${radius}px 0 0)`;
   return (
     <Fast.Provider value={true}>
-      <motion.div ref={ref} className="new-world" style={reduced ? undefined : { clipPath: clip }}>
-        <span className="new-world-edge" aria-hidden="true" />
-        {children}
-      </motion.div>
+      <div className="new-world">{children}</div>
     </Fast.Provider>
   );
 }
