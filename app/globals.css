@@ -33,6 +33,13 @@ img { display: block; max-width: 100%; height: auto; }
 .room { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: #161a18; }
 .room-images, .room-frame, .room-scrim, .room-vignette, .room-cool, .room-amber { position: absolute; inset: 0; }
 .room-amber { background: #b06a1c; mix-blend-mode: overlay; }
+.room-desk { position: absolute; inset: 0; will-change: opacity; }
+.room-desk picture, .room-desk img { display: block; width: 100%; height: 100%; }
+.room-desk img { object-fit: cover; object-position: 58% 40%; animation: desk-in 2.4s ease both; }
+@keyframes desk-in { from { transform: scale(1.06); filter: brightness(.7); } to { transform: scale(1); filter: brightness(1); } }
+.room-desk-shade { position: absolute; inset: 0; background:
+  linear-gradient(to top, rgba(12, 9, 6, .9) 0%, rgba(12, 9, 6, .62) 34%, rgba(12, 9, 6, .12) 62%, rgba(12, 9, 6, 0) 78%),
+  linear-gradient(90deg, rgba(12, 9, 6, .45) 0%, rgba(12, 9, 6, 0) 58%); }
 .room-images { will-change: filter; }
 .room-frame { display: block; will-change: opacity; }
 .room-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
@@ -55,7 +62,7 @@ img { display: block; max-width: 100%; height: auto; }
 .talk-button { display: flex; align-items: center; justify-content: center; gap: 22px; border: 1px solid rgba(242, 236, 224, .45); border-radius: 999px; min-height: 46px; padding: 0 22px; font-size: 13px; background: rgba(16, 21, 19, .35); }
 .talk-button .arrow { width: 16px; }
 
-.opening { min-height: 800px; min-height: max(760px, 100svh); display: flex; flex-direction: column; justify-content: center; position: relative; padding: 160px 0 150px; }
+.opening { min-height: 800px; min-height: max(760px, 100svh); display: flex; flex-direction: column; justify-content: flex-end; position: relative; padding: 160px 0 150px; }
 .opening-content { width: min(100%, 1050px); }
 .opening-rule { display: block; width: 64px; height: 2px; background: var(--warm); margin-bottom: 37px; transform-origin: left; animation: rule-in 1.3s ease both; }
 @keyframes rule-in { from { transform: scaleX(.1); } to { transform: scaleX(1); } }
@@ -239,6 +246,7 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
   .room-frame-1 { opacity: 1 !important; }
   .room-cool { opacity: .16 !important; }
   .room-grain, .room-amber { display: none; }
+  .room-desk img { animation: none; }
   .reveal, .portrait, .work-card, .contact-button, .talk-button { transform: none !important; }
   .work-image img { transform: none !important; transition: none; }
   .process-rail > span { transform: none !important; }

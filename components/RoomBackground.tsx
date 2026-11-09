@@ -4,7 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { SITE } from "@/data/site";
 
 export default function RoomBackground() {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress, scrollY } = useScroll();
+  // Jot's desk (the v2 image) holds the opening, then dissolves into the room.
+  const desk = useTransform(scrollY, (y) => {
+    const vh = typeof window === "undefined" ? 800 : window.innerHeight;
+    return Math.min(1, Math.max(0, 1 - (y - 0.2 * vh) / (0.75 * vh)));
+  });
   // Each new frame dissolves over the previous one; the base is always opaque.
   const second = useTransform(scrollYProgress, [0.12, 0.31], [0, 1]);
   const third = useTransform(scrollYProgress, [0.37, 0.57], [0, 1]);
@@ -49,6 +54,14 @@ export default function RoomBackground() {
       <motion.div className="room-amber" style={{ opacity: amber }} />
       <motion.div className="room-scrim" style={{ background: scrim }} />
       <div className="room-vignette" />
+      <motion.div className="room-desk" style={{ opacity: desk }}>
+        <picture>
+          <source media="(max-width: 767px)" srcSet="/hero/desk-phone.webp" />
+          <img src="/hero/desk-1920.webp" srcSet="/hero/desk-1920.webp 1920w, /hero/desk.webp 2560w" sizes="100vw"
+            alt="" width={2560} height={1344} loading="eager" fetchPriority="high" decoding="async" />
+        </picture>
+        <div className="room-desk-shade" />
+      </motion.div>
     </div>
   );
 }
