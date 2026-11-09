@@ -7,7 +7,7 @@ const { outputText } = ts.transpileModule(source, { compilerOptions: { module: t
 const { SITE: s } = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`);
 const summary = [
   s.brand, s.SITE_URL, s.location,
-  s.opening.heading, s.opening.body, s.opening.promise, s.opening.promiseNote,
+  s.opening.heading, s.opening.body,
   s.what.heading, s.what.body,
   s.how.heading, ...s.how.steps.map((step, i) => `${i + 1}. ${[step.title, step.body].filter(Boolean).join(" ")}`),
   s.about.heading, s.about.intro, `${s.about.portfolio}: ${s.PORTFOLIO_HREF}`, s.about.body, s.about.strengths,

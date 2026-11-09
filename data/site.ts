@@ -23,7 +23,7 @@ export const SITE = {
   ui: {
     talk: "Let's talk",
     skip: "Skip to content",
-    scroll: "Scroll to explore",
+    scroll: "Grow your business and take your time back.",
     home: "Jot Bilkhu - home",
     mainHref: "#main",
     scrollHref: "#what",
@@ -32,8 +32,6 @@ export const SITE = {
   opening: {
     heading: "I help small businesses automate.",
     body: "If you want to automate your manual workflows and don't know how — you're in the right place.",
-    promise: "Grow your business and take your time back.",
-    promiseNote: "Sounds too good to be true? I'll show you how.",
   },
   what: {
     heading: "What is this?",

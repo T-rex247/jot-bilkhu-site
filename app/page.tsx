@@ -30,7 +30,6 @@ export default function Page() {
             <span className="opening-rule" aria-hidden="true" />
             <h1 id="opening-heading"><Typewriter text={s.opening.heading} /></h1>
             <Reveal delay={0.2}><p className="opening-subtitle">{s.opening.body}</p></Reveal>
-            <Reveal delay={0.35}><p className="opening-promise"><strong>{s.opening.promise}</strong> <span>{s.opening.promiseNote}</span></p></Reveal>
           </div>
           <a href={s.ui.scrollHref} className="scroll-cue"><span className="scroll-line" aria-hidden="true" />{s.ui.scroll}<span aria-hidden="true">↓</span></a>
           <div className="opening-corners" aria-hidden="true" />
