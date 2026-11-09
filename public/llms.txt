@@ -1,6 +1,6 @@
 # Jot Bilkhu — Custom Software Studio
 
-https://jot-studio-v2.vercel.app
+https://jot-studio-v3.vercel.app
 
 I build owner-led businesses their entire operating system, piece by piece.
 

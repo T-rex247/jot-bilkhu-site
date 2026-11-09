@@ -1,7 +1,7 @@
 /* Strings are verbatim from https://jot-studio-site.vercel.app (captured 2026-10-26) unless marked. Nothing invented.
    Marked 2026-11-02 (msg 6133): BIZ.forWho and FAQ are new wording, built from what the site already says; each needs Jot's sign-off. */
 export const SITE_LIVE = false;
-export const SITE_URL = "https://jot-studio-v2.vercel.app";
+export const SITE_URL = "https://jot-studio-v3.vercel.app";
 
 export const BIZ = {
   name: "Jot Bilkhu",
