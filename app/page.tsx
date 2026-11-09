@@ -24,7 +24,7 @@ export default function Page() {
         </div>
       </header>
       <main id="main">
-        <Portal>
+        <Portal heading={s.what.heading} body={s.what.body}>
         <section className="opening shell" aria-labelledby="opening-heading">
           <div className="opening-content">
             <span className="opening-rule" aria-hidden="true" />
@@ -37,12 +37,6 @@ export default function Page() {
         </Portal>
 
         <NewWorld>
-        <section id="what" className="what-section shell section" aria-labelledby="what-heading">
-          <Reveal className="outcome-block">
-            <h2 id="what-heading" className="outcome-heading">{s.what.heading}</h2>
-          </Reveal>
-          <Reveal delay={0.12}><p className="outcome-body">{s.what.body}</p></Reveal>
-        </section>
 
         <section id="how" className="how-section shell section" aria-labelledby="how-heading">
           <Reveal className="section-intro"><SectionMark number="02" /><h2 id="how-heading">{s.how.heading}</h2></Reveal>
