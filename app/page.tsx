@@ -19,8 +19,7 @@ export default function Page() {
       <header className="topbar">
         <div className="topbar-inner">
           <a className="wordmark" href={s.ui.mainHref} aria-label={s.ui.home}>
-            <span className="brand-symbol" aria-hidden="true"><i /><i /><i /><i /></span>
-            <span><strong>{s.name}</strong><span>{s.studio}</span></span>
+            <span className="brand-text"><strong>{s.name.toLowerCase()}<span className="brand-dot" aria-hidden="true">.</span></strong><span className="brand-studio">{s.studio.toLowerCase()}</span></span>
           </a>
           <MagneticLink href={s.ui.startHref} className="talk-button">{s.ui.talk}<Arrow diagonal /></MagneticLink>
         </div>
@@ -31,6 +30,7 @@ export default function Page() {
             <span className="opening-rule" aria-hidden="true" />
             <h1 id="opening-heading"><Typewriter text={s.opening.heading} /></h1>
             <Reveal delay={0.2}><p className="opening-subtitle">{s.opening.body}</p></Reveal>
+            <Reveal delay={0.35}><p className="opening-promise"><strong>{s.opening.promise}</strong> <span>{s.opening.promiseNote}</span></p></Reveal>
           </div>
           <a href={s.ui.scrollHref} className="scroll-cue"><span className="scroll-line" aria-hidden="true" />{s.ui.scroll}<span aria-hidden="true">↓</span></a>
           <div className="opening-corners" aria-hidden="true" />
