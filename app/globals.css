@@ -324,17 +324,17 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 }
 
 /* ---------- The way in: spin, spark, inside out ---------- */
-.portal { position: relative; height: calc(100svh + 120vh); }
-.portal-still { height: auto; }
-.portal-stage { position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden; background: #0b0f0e; }
-.portal-still .portal-stage { position: relative; height: auto; }
+.portal { position: relative; height: 200svh; background: #0b0f0e; }
+.portal-still { height: auto; background: none; }
+.portal-stage { position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden; }
+.portal-still .portal-stage { position: relative; height: auto; min-height: 0; }
+.portal-card { position: absolute; inset: 0; overflow: hidden; background: #0b0f0e; transform-origin: 50% 30%; will-change: transform; }
+.portal-img { position: absolute; inset: 0; transform-origin: 60% 40%; will-change: transform; }
 .portal .room { position: absolute; z-index: 0; }
 .portal .opening { position: relative; z-index: 1; height: 100%; min-height: 0; box-sizing: border-box; }
 .portal-still .opening { min-height: max(760px, 100svh); }
-.portal-copy { position: absolute; inset: 0; z-index: 1; will-change: transform, opacity, filter; }
-.portal-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.portal-copy { position: absolute; inset: 0; z-index: 1; }
 @media (max-width: 767px) { .portal .opening { padding-top: 120px; padding-bottom: 60px; } }
-.portal:not(.portal-still) { background-color: #f5f7f6; }
-.portal:not(.portal-still) .portal-stage { z-index: 1; }
-.portal:not(.portal-still) + .new-world { position: relative; z-index: 0; margin-top: -100svh; padding-top: 0; }
+.portal:not(.portal-still) + .new-world { position: relative; z-index: 2; margin-top: -100svh; padding-top: 0;
+  box-shadow: 0 -1px 0 rgba(255,255,255,.08), 0 -40px 80px rgba(0,0,0,.28); }
 .portal + .new-world .what-section { padding-top: 64px; }
