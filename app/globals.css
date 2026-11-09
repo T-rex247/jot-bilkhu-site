@@ -335,7 +335,7 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 .portal-still .opening { min-height: max(760px, 100svh); }
 .portal-copy { position: absolute; inset: 0; z-index: 1; will-change: transform, opacity; }
 @media (max-width: 767px) { .portal .opening { padding-top: 120px; padding-bottom: 60px; } }
-.portal-white { position: absolute; inset: 0; z-index: 2; background-color: #f5f7f6;
+.portal-white { position: absolute; inset: 0; z-index: 2; pointer-events: none; background-color: #f5f7f6;
   background-image: linear-gradient(rgba(15, 25, 22, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 25, 22, .035) 1px, transparent 1px);
   background-size: 72px 72px; background-position: center top; }
 .portal-outro { position: absolute; z-index: 3; inset: 0; margin: auto; display: flex; flex-direction: column; justify-content: center; color: #0b1412; pointer-events: none; }
