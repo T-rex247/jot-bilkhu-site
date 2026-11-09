@@ -1,18 +1,19 @@
 import { readFile, writeFile } from "node:fs/promises";
 import ts from "typescript";
 
-// Compile the shared copy module in memory; works with the site's Node 20+ baseline.
+// Use exactly the same copy as the rendered page, without a second set of exports.
 const source = await readFile(new URL("../data/site.ts", import.meta.url), "utf8");
 const { outputText } = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext } });
-const { BIZ, ABOUT, SERVICES, HOW, FIRST_BUILD, FAQ, UI, SITE_URL } = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`);
-const text = [
-  `# ${BIZ.brand}`, SITE_URL, BIZ.h1, BIZ.tagline, BIZ.sub,
-  `## ${ABOUT.label}`, ABOUT.text.replace("{pron}", ABOUT.pron),
-  `## ${UI.servicesLabel}`,
-  ...SERVICES.flatMap(s => [`### ${s.name}`, s.outcome, ...s.items.map(item => `- ${item.t}`)]),
-  `## ${HOW.label}`, ...HOW.steps.flatMap(s => [`### ${s.n}. ${s.t}`, s.d]),
-  `## ${FIRST_BUILD.label}`, ...FIRST_BUILD.items.flatMap(item => [`- ${item.t}`, item.d]), FIRST_BUILD.note,
-  `## ${FAQ.h}`, ...FAQ.items.flatMap(item => [`### ${item.q}`, item.a]),
-  `## ${BIZ.cta}`, BIZ.ctaNote, BIZ.bookHref, BIZ.name, BIZ.city, BIZ.phone, BIZ.email,
+const { SITE: s } = await import(`data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`);
+const summary = [
+  s.brand, s.SITE_URL, s.location,
+  s.opening.heading, s.opening.body,
+  s.what.heading, s.what.body,
+  s.how.heading, ...s.how.steps.map((step, i) => `${i + 1}. ${[step.title, step.body].filter(Boolean).join(" ")}`),
+  s.about.heading, s.about.intro, `${s.about.portfolio}: ${s.PORTFOLIO_HREF}`, s.about.body, s.about.strengths,
+  s.work.heading, ...s.work.cards.map(card => `${card.title}\n${card.body}`),
+  s.hunch.heading, s.hunch.body,
+  s.start.heading, s.start.body,
+  `${s.start.book}: ${s.BOOK_HREF}`, `${s.start.phone}: ${s.PHONE_DISPLAY} (tel:${s.PHONE_TEL})`, `${s.start.email}: ${s.EMAIL}`,
 ].join("\n\n") + "\n";
-await writeFile(new URL("../public/llms.txt", import.meta.url), text);
+await writeFile(new URL("../public/llms.txt", import.meta.url), summary);

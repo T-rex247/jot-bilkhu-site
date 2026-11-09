@@ -1,63 +1,37 @@
-# Jot Bilkhu — website source
+# Jot Bilkhu - Custom Software Studio
 
-Jot's site ("I build owner-led businesses their entire operating system"), built by Tee's team, October 2026.
-Live preview it was built from: https://jot-studio-v2.vercel.app
+A single, short reference page for business owners. Next.js 16 static export, React 19, Framer Motion, and native scrolling.
 
-This repo is the full source. Any developer or AI agent (e.g. jot_klawbi_bot) can clone it, edit, and deploy.
+## Local development
 
-## Run it
+Node 20.9+.
 
-```bash
+```sh
 npm ci
-npm run dev          # http://localhost:3000
-npm run build        # static export → out/
+npm run dev
+npm run build
 ```
 
-Node 20+. Next.js 16 (static export), Tailwind 4, framer-motion (hover/magnetic only).
+The build generates `out/` and refreshes `public/llms.txt`. No deployment or commit is part of local development.
 
-## Where things are
+The build uses Next's Webpack option because Turbopack stalled in the restricted
+local environment. Fonts are bundled locally, so building needs no Google Fonts
+connection. Font copyright notices and the OFL license are in `app/fonts/OFL.txt`.
 
-| You want to change | Edit |
-|---|---|
-| Any words on the site (name, phone, email, services, case studies, captions) | `data/site.ts`: all copy lives here, nothing is hard-coded in components |
-| Colors, fonts, spacing (design system) | `app/globals.css`: pure black/white, Barlow Condensed (headings) + Inter (body) |
-| Page order / which sections show | `app/page.tsx` |
-| One section's layout | `components/<Section>.tsx` (Hero, Day, Story, Work, Services, How, About, Closing, Footer, Nav, MobileBar) |
-| Images | `public/`: `hero/` (hero frames), `concept/` (section art), `shots/` (product screenshots), `jot-headshot.jpg` |
-| Page title, description, social preview | `app/layout.tsx` |
+## Editing
 
-## Deploy
+- `data/site.ts`: one exported `SITE` object containing all copy, image descriptions, links, contact details, and metadata. Change `PHONE_TEL` here to change the dialed number.
+- `app/page.tsx`: semantic, server-rendered sections, in reading order.
+- `components/RoomBackground.tsx`: four responsive room layers, scroll-driven dissolves, and warm-to-cool grading.
+- `components/Motion.tsx`: progressive reveals, typewriter, process line, portrait, magnetic links, and card tilt.
+- `app/globals.css`: responsive layout, Arvo / Fraunces / Inter (bundled through next/font/local) typography, grain and flow-line effects.
+- `data/structured.ts`: Person, ProfessionalService, and five FAQ answers derived from the page copy.
+- `scripts/generate-llms.mjs`: plain-text page summary from the same data object.
 
-**Vercel (easiest):** import this repo at vercel.com/new. The framework is detected as Next.js, and the default build settings work.
-- `vercel.json` currently sets **noindex**, because this was a preview. Remove the `X-Robots-Tag` header before going live on the real domain, so Google can index it.
-- Point the domain at the new Vercel project.
+All text is readable in exported HTML. Reveals start only after hydration, remain at least 88% opaque, and settle after six seconds even if the observer fails. Missing IntersectionObserver leaves content visible. The typewriter reserves its entire layout and has a four-second completion fallback. Reduced motion selects the finished room in the picture's media sources before JavaScript, disables spatial movement and grain, and keeps simple fades. Only the initial room frame has high fetch priority; later frames and content images are lazy and dimensions are reserved.
 
-**Any static host:** run `npm run build` and upload the `out/` folder.
+Check 390px mobile and 1440px desktop, keyboard navigation, reduced motion, JavaScript disabled, image source selection, and the `#start` contact links after layout changes. No Lenis or scroll interception.
 
-## Rules that keep it working
+## Preview indexing
 
-- The hero (`components/Hero.tsx`) uses a single image and **native scroll**, with no pinning. Don't add Lenis or other smooth-scroll libraries; they broke desktop scrolling in testing.
-- In animated headings, keep the space **outside** each word's inline-block span, or the words run together ("Ibuildowner-led").
-- Respect `prefers-reduced-motion`: the site already falls back to static content. Keep that when adding motion.
-- After any change, check the page at **1440 px desktop and 390 px mobile** for horizontal overflow and readable text before deploying.
-- Copy, contact details and case studies came from Jot's original site. Don't invent numbers, clients or claims.
-
-## Go live checklist
-
-All three must be checked before launch:
-
-1. Set `SITE_LIVE = true` in `data/site.ts` to enable index/follow in page metadata.
-2. Remove the preview `X-Robots-Tag: noindex, nofollow` header in `vercel.json` (a separate deployment step).
-3. Set `SITE_URL` in `data/site.ts` to the production domain and configure that domain on the host. Rebuild to update canonical URLs, sitemap, structured data, and `llms.txt`.
-
-`robots.txt` allows all crawlers, including AI crawlers, and links to the sitemap. Crawl access does not override the preview's noindex metadata or response header.
-
-## Motion and static content
-
-- `SmoothScroll.tsx` enables `.si` reveals only after JavaScript starts, then marks them `.in` with an observer and a six-second failsafe. Text stays opaque. Without JavaScript, images and copy start fully visible.
-- Both the operating system's reduced-motion preference and `jot:reduceMotion` disable motion, including CSS effects. Scroll tracking uses passive listeners and one animation frame per update.
-- Services are all present in the exported HTML; without JavaScript all groups expand. FAQ answers remain in native `<details>` and work without JavaScript. Browsers supporting `::details-content` get opacity/transform disclosure transitions, with a discrete visibility switch; others use native immediate disclosure.
-- `npm run build` regenerates `public/llms.txt` from `data/site.ts` via `scripts/generate-llms.mjs`. Do not edit the generated summary directly.
-- JSON-LD uses existing copy only. Telephone detection remains enabled and explicit `tel:` links remain intact.
-
-
+`SITE.SITE_LIVE` remains `false`, and `SITE.SITE_URL` remains `https://jot-studio-v3.vercel.app`. Page metadata remains `noindex, nofollow`; `vercel.json` independently supplies the same `X-Robots-Tag`. Robots and sitemap routes remain available. Going live is a separate, explicit decision.
