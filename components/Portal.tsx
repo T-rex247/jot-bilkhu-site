@@ -77,7 +77,6 @@ export default function Portal({ children, heading, body }: { children: ReactNod
       <div className="portal-stage">
         <div className="room" aria-hidden="true">
           <motion.div className="portal-img" style={{ scale: zoom }}><Desk /></motion.div>
-          <div className="room-grain" />
         </div>
         <motion.div className="portal-copy" style={{ opacity: copyOpacity, y: copyY }}>{children}</motion.div>
         <motion.div className="portal-white" style={{ opacity: white }} aria-hidden="true" />
