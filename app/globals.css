@@ -328,24 +328,11 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 .portal-still { height: auto; }
 .portal-stage { position: sticky; top: 0; height: 100svh; min-height: 640px; overflow: hidden; background: #0b0f0e; }
 .portal-still .portal-stage { position: relative; height: auto; }
-.portal-world { position: absolute; inset: 0; transform-origin: 50% 55%; will-change: transform, filter, opacity; }
 .portal .room { position: absolute; z-index: 0; }
 .portal .opening { position: relative; z-index: 1; height: 100%; min-height: 0; box-sizing: border-box; }
 .portal-still .opening { min-height: max(760px, 100svh); }
-.portal-fx { position: absolute; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
-.portal-fx > * { position: absolute; left: 50%; top: 50%; }
-.portal-spark { width: 26vmin; height: 26vmin; margin: -13vmin 0 0 -13vmin; border-radius: 50%; mix-blend-mode: screen;
-  background: radial-gradient(circle, #fff 0 7%, rgba(255, 246, 214, .95) 12%, rgba(235, 184, 74, .7) 26%, rgba(128, 209, 193, .45) 45%, transparent 70%);
-  box-shadow: 0 0 80px 30px rgba(235, 184, 74, .25), 0 0 160px 60px rgba(128, 209, 193, .18); will-change: transform, opacity; }
-.portal-rays { position: relative; width: 0; height: 0; mix-blend-mode: screen; will-change: transform, opacity; }
-.portal-rays span { position: absolute; left: 0; top: 0; border-radius: 4px; transform-origin: 0 50%;
-  background: linear-gradient(90deg, transparent, #fff3cf 40%, #80d1c1);
-  transform: rotate(var(--a)) translateX(calc(var(--burst) * var(--d))) scaleX(calc(.4 + var(--burst))); }
-.portal-rays span:nth-child(3n) { background: linear-gradient(90deg, transparent, #ebb84a 50%, #fff); }
-.portal-iris, .portal-ring { width: 170vmax; height: 170vmax; margin: -85vmax 0 0 -85vmax; border-radius: 50%; will-change: transform; }
-.portal-iris { background-color: #f5f7f6; background-image: linear-gradient(rgba(15,25,22,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(15,25,22,.035) 1px, transparent 1px); background-size: 72px 72px; background-position: center; }
-.portal-ring { width: 172vmax; height: 172vmax; margin: -86vmax 0 0 -86vmax; filter: blur(2px);
-  background: conic-gradient(from 0deg, #ebb84a, #fff3cf, #80d1c1, #14a38b, #ebb84a, #fff, #80d1c1, #ebb84a); }
+.portal-copy { position: absolute; inset: 0; z-index: 1; will-change: transform, opacity, filter; }
+.portal-gl { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 @media (max-width: 767px) { .portal .opening { padding-top: 120px; padding-bottom: 60px; } }
 .portal:not(.portal-still) { background-color: #f5f7f6; }
 .portal:not(.portal-still) .portal-stage { z-index: 1; }
