@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent, type ReactNode } from "react";
+import { useEffect, useRef, type MouseEvent, type ReactNode } from "react";
 import { animate, motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
 
 // The way in, Apple-style: the scene stays pinned and the scroll drives one
@@ -13,6 +13,73 @@ const ramp = (a: number, b: number, from: number, to: number) => (v: number) => 
   const e = t * t * (3 - 2 * t);
   return from + (to - from) * e;
 };
+
+// One gesture plays the whole way in. The first wheel turn, swipe or arrow
+// key inside the scene starts the transition and runs it to the end; input is
+// held while it plays (and until trackpad momentum dies out) so it can't stutter.
+let playing = false;
+let lastWheel = 0;
+let holdMomentum = false;
+const portalEnd = () => {
+  const el = document.querySelector<HTMLElement>(".portal");
+  return el ? el.offsetTop + el.offsetHeight - window.innerHeight : 0;
+};
+function playTo(to: number, duration: number) {
+  if (playing) return;
+  playing = true;
+  document.documentElement.style.scrollBehavior = "auto";
+  animate(window.scrollY, to, {
+    duration, ease: [0.45, 0, 0.25, 1],
+    onUpdate: (v) => window.scrollTo(0, v),
+    onComplete: () => { playing = false; holdMomentum = true; },
+  });
+}
+// Down from anywhere before the end plays forward; up from inside plays back.
+function intent(dir: 1 | -1) {
+  const end = portalEnd(), y = window.scrollY;
+  if (dir > 0 && y < end - 2) { playTo(end, 2.6); return true; }
+  if (dir < 0 && y > 2 && y <= end + 2) { playTo(0, 1.8); return true; }
+  return false;
+}
+
+function useOneGesture(enabled: boolean) {
+  useEffect(() => {
+    if (!enabled) return;
+    const onWheel = (e: WheelEvent) => {
+      const now = performance.now(), gap = now - lastWheel; lastWheel = now;
+      if (playing) { e.preventDefault(); return; }
+      if (holdMomentum) { if (gap < 220) { e.preventDefault(); return; } holdMomentum = false; }
+      if (Math.abs(e.deltaY) < 1) return;
+      if (intent(e.deltaY > 0 ? 1 : -1)) e.preventDefault();
+    };
+    let startY = 0, fired = false;
+    const onTouchStart = (e: TouchEvent) => { startY = e.touches[0].clientY; fired = false; holdMomentum = false; };
+    const onTouchMove = (e: TouchEvent) => {
+      if (playing || fired) { if (playing) e.preventDefault(); return; }
+      const dy = startY - e.touches[0].clientY;
+      if (Math.abs(dy) < 6) return;
+      if (intent(dy > 0 ? 1 : -1)) { fired = true; e.preventDefault(); }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (t && /INPUT|TEXTAREA|SELECT/.test(t.tagName)) return;
+      if (playing && ["ArrowDown", "ArrowUp", "PageDown", "PageUp", " ", "Space"].includes(e.key)) { e.preventDefault(); return; }
+      const dir = ["ArrowDown", "PageDown", " "].includes(e.key) && !e.shiftKey ? 1
+        : ["ArrowUp", "PageUp"].includes(e.key) || (e.key === " " && e.shiftKey) ? -1 : 0;
+      if (dir && intent(dir as 1 | -1)) e.preventDefault();
+    };
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [enabled]);
+}
 
 function Desk() {
   return (
@@ -51,6 +118,7 @@ function Outro({ p, heading, body }: { p: MotionValue<number>; heading: string; 
 export default function Portal({ children, heading, body }: { children: ReactNode; heading: string; body: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
+  useOneGesture(!reduced);
   const { scrollYProgress: p } = useScroll({ target: ref, offset: ["start start", "end end"] });
 
   const zoom = useTransform(p, ramp(0, 0.55, 1, 1.32));
@@ -90,11 +158,9 @@ export default function Portal({ children, heading, body }: { children: ReactNod
 export function ComeInside({ className, children }: { className?: string; children: ReactNode }) {
   const reduced = useReducedMotion();
   const onClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    const portal = document.querySelector<HTMLElement>(".portal");
-    if (!portal || reduced) return;
+    if (reduced || !document.querySelector(".portal")) return;
     e.preventDefault();
-    const to = portal.offsetTop + portal.offsetHeight - window.innerHeight;
-    animate(window.scrollY, to, { duration: 3.2, ease: [0.45, 0, 0.25, 1], onUpdate: (v) => window.scrollTo(0, v) });
+    playTo(portalEnd(), 2.6);
   };
   return <a href="#what" className={className} onClick={onClick}>{children}</a>;
 }
