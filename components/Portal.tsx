@@ -94,28 +94,26 @@ function Desk() {
   );
 }
 
-function Word({ p, i, n, children }: { p: MotionValue<number>; i: number; n: number; children: string }) {
-  const start = 0.56 + (i / n) * 0.2;
+export type Line = { readonly text: string; readonly accent: boolean };
+
+function LineIn({ p, i, n, line }: { p: MotionValue<number>; i: number; n: number; line: Line }) {
+  const start = 0.56 + (i / n) * 0.3;
   const opacity = useTransform(p, ramp(start, start + 0.08, 0, 1));
-  const y = useTransform(p, ramp(start, start + 0.1, 18, 0));
-  return <motion.span className="w" style={{ opacity, y }}>{children}</motion.span>;
+  const y = useTransform(p, ramp(start, start + 0.1, 22, 0));
+  return <motion.span className={line.accent ? "l accent" : "l"} style={{ opacity, y }}>{line.text}</motion.span>;
 }
 
-function Outro({ p, heading, body }: { p: MotionValue<number>; heading: string; body: string }) {
-  const words = heading.split(" ");
-  const bodyOpacity = useTransform(p, ramp(0.8, 0.9, 0, 1));
-  const bodyY = useTransform(p, ramp(0.8, 0.92, 14, 0));
+function Outro({ p, lines }: { p: MotionValue<number>; lines: readonly Line[] }) {
   return (
     <section id="what" className="portal-outro shell" aria-labelledby="what-heading">
       <h2 id="what-heading" className="outro-heading">
-        {words.map((w, i) => <Word key={i} p={p} i={i} n={words.length}>{w}</Word>)}
+        {lines.map((l, i) => <LineIn key={i} p={p} i={i} n={lines.length} line={l} />)}
       </h2>
-      <motion.p className="outro-body" style={{ opacity: bodyOpacity, y: bodyY }}>{body}</motion.p>
     </section>
   );
 }
 
-export default function Portal({ children, heading, body }: { children: ReactNode; heading: string; body: string }) {
+export default function Portal({ children, lines }: { children: ReactNode; lines: readonly Line[] }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   useOneGesture(!reduced);
@@ -132,8 +130,7 @@ export default function Portal({ children, heading, body }: { children: ReactNod
         <div className="portal-stage"><div className="room"><Desk /></div>{children}</div>
         <div className="new-world portal-outro-still">
           <section id="what" className="portal-outro shell" aria-labelledby="what-heading">
-            <h2 id="what-heading" className="outro-heading">{heading}</h2>
-            <p className="outro-body">{body}</p>
+            <h2 id="what-heading" className="outro-heading">{lines.map((l, i) => <span key={i} className={l.accent ? "l accent" : "l"}>{l.text}</span>)}</h2>
           </section>
         </div>
       </div>
@@ -148,7 +145,7 @@ export default function Portal({ children, heading, body }: { children: ReactNod
         </div>
         <motion.div className="portal-copy" style={{ opacity: copyOpacity, y: copyY }}>{children}</motion.div>
         <motion.div className="portal-white" style={{ opacity: white }} aria-hidden="true" />
-        <Outro p={p} heading={heading} body={body} />
+        <Outro p={p} lines={lines} />
       </div>
     </div>
   );

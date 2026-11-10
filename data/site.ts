@@ -34,8 +34,11 @@ export const SITE = {
     body: "If you want to automate your manual workflows and don't know how — you're in the right place.",
   },
   what: {
-    heading: "Grow your business and take your time back.",
-    body: "I build simple software that does the repeat work in your business for you. It's made for how you already work, so there's nothing new to learn.",
+    lines: [
+      { text: "Grow it.", accent: false },
+      { text: "Speed it up.", accent: false },
+      { text: "Take your time back.", accent: true },
+    ],
   },
   how: {
     heading: "How does it work?",
@@ -47,11 +50,16 @@ export const SITE = {
     ],
   },
   about: {
-    heading: "Who is Jot?",
-    intro: "I'm Jot Bilkhu. I've been a certified coach, and I'm an artist and designer.",
+    question: "Who is Jot?",
+    heading: "Hello, and welcome.",
+    paragraphs: [
+      "My name is Jot (said “joe-th”), and I have a gift I’d like to give you: your time back.",
+      "I’ve come to learn that technology is one of the best gifts I can offer someone. When the manual work in your business runs on its own, you can grow and move faster.",
+      "I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
+      "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build your whole operating system, one piece at a time.",
+    ],
+    background: "Before this I was a certified coach, and I’m an artist and designer.",
     portfolio: "See my art and design work",
-    body: "Now I build custom software with AI build tools and a team of engineers from my parent company, HusslAI.",
-    strengths: "What I'm good at: design, listening, relationships, and building with purpose and care.",
     image: { src: "/jot-headshot.jpg", alt: "Jot Bilkhu", width: 1280, height: 1219 },
   },
   work: {

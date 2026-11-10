@@ -24,7 +24,7 @@ export default function Page() {
         </div>
       </header>
       <main id="main">
-        <Portal heading={s.what.heading} body={s.what.body}>
+        <Portal lines={s.what.lines}>
         <section className="opening shell" aria-labelledby="opening-heading">
           <div className="opening-content">
             <span className="opening-rule" aria-hidden="true" />
@@ -38,24 +38,23 @@ export default function Page() {
 
         <NewWorld>
 
-        <section id="how" className="how-section shell section" aria-labelledby="how-heading">
-          <Reveal className="section-intro"><SectionMark number="02" /><h2 id="how-heading">{s.how.heading}</h2></Reveal>
-          <Process steps={s.how.steps} />
-        </section>
-
         <section id="about" className="about-section shell section" aria-labelledby="about-heading">
           <Reveal className="portrait-wrap">
-            <Portrait><Image {...s.about.image} sizes="(max-width: 767px) 85vw, 420px" loading="lazy" /></Portrait>
+            <Portrait><Image {...s.about.image} sizes="(max-width: 767px) 85vw, 420px" priority /></Portrait>
           </Reveal>
           <div className="about-copy">
-            <Reveal><SectionMark number="03" /><h2 id="about-heading">{s.about.heading}</h2></Reveal>
-            <Reveal delay={0.08}>
-              <p>{s.about.intro}</p>
+            <Reveal><SectionMark number="02" /><h2 id="about-heading">{s.about.heading}</h2></Reveal>
+            {s.about.paragraphs.map((para, i) => <Reveal key={i} delay={0.06 * (i + 1)}><p>{para}</p></Reveal>)}
+            <Reveal delay={0.3}>
+              <p className="about-strengths">{s.about.background}</p>
               <a className="text-link" href={s.PORTFOLIO_HREF} target="_blank" rel="noopener noreferrer">{s.about.portfolio}<Arrow diagonal /></a>
             </Reveal>
-            <Reveal delay={0.14}><p>{s.about.body}</p></Reveal>
-            <Reveal delay={0.2}><p className="about-strengths">{s.about.strengths}</p></Reveal>
           </div>
+        </section>
+
+        <section id="how" className="how-section shell section" aria-labelledby="how-heading">
+          <Reveal className="section-intro"><SectionMark number="03" /><h2 id="how-heading">{s.how.heading}</h2></Reveal>
+          <Process steps={s.how.steps} />
         </section>
 
         <section id="work" className="work-section shell section" aria-labelledby="work-heading">
