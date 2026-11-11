@@ -33,6 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${typewriter.variable} ${serif.variable} ${sans.variable}`}>
       <body>
+        {/* Always open at the top of the home screen: drop any #section from the URL and don't restore an old scroll position (Jot 6803). */}
+        <script dangerouslySetInnerHTML={{ __html: "try{if('scrollRestoration' in history)history.scrollRestoration='manual';if(location.hash)history.replaceState(null,'',location.pathname+location.search);window.scrollTo(0,0);}catch(e){}" }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
         {children}
       </body>
