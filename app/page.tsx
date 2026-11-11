@@ -46,8 +46,6 @@ export default function Page() {
             <Reveal><SectionMark number="02" /><h2 id="about-heading">{s.about.heading}</h2></Reveal>
             {s.about.paragraphs.map((para, i) => <Reveal key={i} delay={0.06 * (i + 1)}><p>{para}</p></Reveal>)}
             <Reveal delay={0.3}>
-              <p className="about-strengths">{s.about.background}</p>
-              <a className="text-link" href={s.PORTFOLIO_HREF} target="_blank" rel="noopener noreferrer">{s.about.portfolio}<Arrow diagonal /></a>
               <p className="about-readon">{s.about.readOn}</p>
             </Reveal>
           </div>
@@ -87,6 +85,10 @@ export default function Page() {
               <Reveal delay={0.16}><MagneticLink className="contact-button" href={`tel:${s.PHONE_TEL}`}><span><strong>{s.start.phone}</strong><small>{s.PHONE_DISPLAY}</small></span><Arrow diagonal /></MagneticLink></Reveal>
               <Reveal delay={0.22}><MagneticLink className="contact-button" href={`mailto:${s.EMAIL}`}><span><strong>{s.start.email}</strong><small>{s.EMAIL}</small></span><Arrow diagonal /></MagneticLink></Reveal>
             </div>
+            <Reveal delay={0.28} className="start-more">
+              <p>{s.about.background}</p>
+              <a className="text-link" href={s.PORTFOLIO_HREF} target="_blank" rel="noopener noreferrer">{s.about.portfolio}<Arrow diagonal /></a>
+            </Reveal>
           </div>
         </section>
         <footer className="footer shell"><Reveal><p>{s.brand} · {s.location}</p><span>{new Date().getFullYear()}</span></Reveal></footer>
