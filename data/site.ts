@@ -42,10 +42,12 @@ export const SITE = {
   how: {
     heading: "How it works",
     steps: [
-      { title: "We talk.", body: "You tell me how your business runs." },
-      { title: "I map it.", body: "We find where your time and money go." },
-      { title: "We build it.", body: "With AI build tools, what used to take months now takes days or weeks." },
-      { title: "You get your time back.", body: "" },
+      { title: "We talk.", body: "We get on Zoom and you tell me how your business really runs. One conversation about your actual week. You don’t need a plan or any tech knowledge." },
+      { title: "I map it.", body: "We find where your time and money are going, and pick the best first piece to automate." },
+      { title: "I build it.", body: "With AI build tools, what used to take months now takes days or weeks. Your first piece is built around how your business already works." },
+      { title: "You try it.", body: "Use it in your real work. Send me one round of changes, and I’ll make them and send it back." },
+      { title: "You own it.", body: "Once it’s paid in full, it’s yours. I stay with you after it goes live." },
+      { title: "We do it again.", body: "When the first piece is paying for itself, we pick the next one and build that. One piece at a time." },
     ],
   },
   about: {
