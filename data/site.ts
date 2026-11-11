@@ -40,7 +40,7 @@ export const SITE = {
     ],
   },
   how: {
-    heading: "How does it work?",
+    heading: "How it works",
     steps: [
       { title: "We talk.", body: "You tell me how your business runs." },
       { title: "I map it.", body: "We find where your time and money go." },
