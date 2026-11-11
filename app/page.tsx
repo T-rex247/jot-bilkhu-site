@@ -17,7 +17,7 @@ export default function Page() {
       <header className="topbar">
         <div className="topbar-inner">
           <a className="wordmark" href={s.ui.mainHref} aria-label={s.ui.home}>
-            <span className="brand-text"><strong className="brand-name">{s.name}</strong><span className="brand-studio"><span aria-hidden="true">| </span>{s.studio}</span></span>
+            <span className="brand-text"><strong className="brand-name">{s.name}</strong><span className="brand-studio"><span aria-hidden="true">· </span>{s.studio}</span></span>
           </a>
           <TalkModal />
         </div>

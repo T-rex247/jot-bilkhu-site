@@ -400,3 +400,10 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
   .deck-copy p { font-size: 15px; }
   .deck-controls { margin-top: 20px; }
 }
+
+/* Header wordmark: small caps typewriter look, all honey gold (Jot 6794) */
+.wordmark .brand-text { font-family: ui-monospace, "SF Mono", Menlo, "Courier New", monospace; text-transform: uppercase; letter-spacing: .14em; color: #e0b858; }
+.wordmark .brand-text strong.brand-name { font-size: 14px; font-weight: 400; letter-spacing: .14em; background: none; -webkit-background-clip: border-box; background-clip: border-box; color: #e0b858; }
+.wordmark .brand-studio { margin-left: 14px; font-size: 14px; color: #e0b858; }
+.wordmark .brand-studio > span { margin-right: 10px; }
+@media (max-width: 760px) { .wordmark .brand-text strong.brand-name { font-size: 13px; } }
