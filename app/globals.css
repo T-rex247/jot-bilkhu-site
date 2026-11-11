@@ -366,3 +366,35 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 @media (max-width: 1100px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 767px) { .contact-grid { grid-template-columns: 1fr; } .talk-modal .start-panel { padding: 30px 20px 22px; } .talk-modal .lets-talk { font-size: 56px; margin: 12px 0 24px; } }
 .talk-modal:focus { outline: none; }
+
+/* Feature deck (Examples of work): one feature per card, loops both ways. */
+.deck { position: relative; outline: none; }
+.deck:focus-visible { outline: 2px solid #14a38b; outline-offset: 8px; border-radius: 22px; }
+.deck-stage { position: relative; overflow: hidden; border-radius: 20px; touch-action: pan-y; }
+.deck-card { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); background: #fff; border: 1px solid rgba(15, 25, 22, .07); border-radius: 20px; overflow: hidden; box-shadow: 0 24px 60px -32px rgba(16, 48, 40, .3); cursor: grab; user-select: none; -webkit-user-select: none; }
+.deck-card:active { cursor: grabbing; }
+.deck-image { aspect-ratio: 1.6; background: #eef2f0; border-right: 1px solid rgba(15, 25, 22, .07); overflow: hidden; }
+.deck-image img { width: 100%; height: 100%; object-fit: cover; object-position: top left; pointer-events: none; }
+.deck-copy { display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 36px 38px; color: #0f1916; }
+.deck-project { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: #0f8f7a; }
+.deck-copy h3 { font-size: 26px; letter-spacing: -.04em; line-height: 1.2; text-wrap: balance; }
+.deck-copy p { font-size: 15.5px; line-height: 1.7; color: #3f4b47; }
+.deck-copy .deck-why { padding-top: 14px; border-top: 1px solid rgba(15, 25, 22, .09); color: #55615d; }
+.deck-controls { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 26px; }
+.deck-arrow { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(15, 25, 22, .14); background: #fff; color: #0f1916; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 18px -10px rgba(16, 48, 40, .35); transition: background .2s, color .2s, border-color .2s; }
+.deck-arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.deck-arrow:hover { background: #0f1916; color: #fff; border-color: #0f1916; }
+.deck-arrow:focus-visible { outline: 2px solid #14a38b; outline-offset: 3px; }
+.deck-count { font-variant-numeric: tabular-nums; font-size: 14px; letter-spacing: .08em; color: #55615d; min-width: 70px; text-align: center; }
+.deck-count span { color: #0f1916; font-weight: 600; }
+@media (max-width: 1100px) {
+  .deck-card { grid-template-columns: 1fr; }
+  .deck-image { border-right: 0; border-bottom: 1px solid rgba(15, 25, 22, .07); }
+  .deck-copy { padding: 28px 30px 32px; }
+}
+@media (max-width: 767px) {
+  .deck-copy { padding: 22px 22px 26px; gap: 11px; }
+  .deck-copy h3 { font-size: 22px; }
+  .deck-copy p { font-size: 15px; }
+  .deck-controls { margin-top: 20px; }
+}

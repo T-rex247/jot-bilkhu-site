@@ -11,7 +11,7 @@ const summary = [
   s.what.heading, s.what.body,
   s.how.heading, ...s.how.steps.map((step, i) => `${i + 1}. ${[step.title, step.body].filter(Boolean).join(" ")}`),
   s.about.heading, s.about.intro, `${s.about.portfolio}: ${s.PORTFOLIO_HREF}`, s.about.body, s.about.strengths,
-  s.work.heading, ...s.work.cards.map(card => `${card.title}\n${card.body}`),
+  s.work.heading, ...s.work.features.map(f => `${f.title}\n${f.what} ${f.why}`),
   s.hunch.heading, s.hunch.body,
   s.start.heading, s.start.body,
   `${s.start.book}: ${s.BOOK_HREF}`, `${s.start.phone}: ${s.PHONE_DISPLAY} (tel:${s.PHONE_TEL})`, `${s.start.email}: ${s.EMAIL}`,

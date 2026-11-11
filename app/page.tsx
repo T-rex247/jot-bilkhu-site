@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { FeatureDeck } from "@/components/FeatureDeck";
 import Portal, { ComeInside } from "@/components/Portal";
-import { NewWorld, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
+import { NewWorld, Portrait, Process, Reveal, Typewriter } from "@/components/Motion";
 import { SITE as s } from "@/data/site";
 import { Arrow, ContactGrid } from "@/components/Contact";
 import TalkModal from "@/components/TalkModal";
@@ -56,16 +57,7 @@ export default function Page() {
 
         <section id="work" className="work-section shell section" aria-labelledby="work-heading">
           <Reveal><SectionMark number="04" /><h2 id="work-heading">{s.work.heading}</h2></Reveal>
-          <div className="work-grid">
-            {s.work.cards.map((card, index) => (
-              <Reveal key={card.title} delay={index * 0.1}>
-                <TiltCard>
-                  <div className="work-image"><Image {...card.image} width={1600} height={1000} sizes="(max-width: 767px) 90vw, 33vw" loading="lazy" /></div>
-                  <div className="work-copy"><h3>{card.title}</h3><p>{card.body}</p></div>
-                </TiltCard>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={0.1}><FeatureDeck features={s.work.features} prevLabel={s.work.prevLabel} nextLabel={s.work.nextLabel} /></Reveal>
         </section>
 
         <section id="hunch" className="hunch-section shell section" aria-labelledby="hunch-heading">

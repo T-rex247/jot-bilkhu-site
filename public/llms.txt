@@ -38,14 +38,44 @@ See my art and design work: https://docs.google.com/presentation/d/1OjXK5zlKdsBD
 
 Examples of work
 
-A family waterproofing business
-Estimates, invoices, the crew schedule and the books, all in one place.
+Site diagrams drawn on the job
+The estimator draws the basement or foundation on a tablet, dropping in beams, piers, sump pumps, drains and window wells, with measurements and a legend that builds itself. The sketch done on site is the finished drawing. Nobody redraws it back at the office, and the customer sees it in their quote.
 
-An artist and his shirt shop
-A shop that turns customers' photos into art and ships the shirts without him touching each order.
+AI that makes art in my style
+A customer picks a photo from their camera roll. The system turns it into a piece in my style, trained on my own work. My style becomes something people can buy without me hand-making each piece.
 
-A university research lab
-A website that translates itself into three languages and runs its own sign-ups and reminders.
+A website in three languages
+Every page reads in English, Spanish or Portuguese, switched from the top of the page. The lab works across the US, the UK and Brazil. Everyone reads it in their own language.
+
+Warranties that send themselves
+When an invoice is paid in full, the system works out which warranties the job earned, makes the certificates and a paid-in-full receipt, and emails them to the customer. Customers get their paperwork the same day, and nobody in the office has to remember to send it.
+
+Your art on a shirt that turns
+The customer's art goes straight onto a shirt that rotates on screen. They can see it from every side before they buy. People buy with confidence when they see exactly what they're getting.
+
+Sign-ups and reminders for the writing group
+Members join the monthly writing group from the website. Before each session they get an email reminder with a calendar invite. The group runs itself. No one keeps a list or sends reminder emails by hand.
+
+Crew schedule
+A month and week calendar of every job. Moving a job is one drag, and multi-day jobs, deadlines and crew notes sit right on it. It replaces the whiteboard and the phone calls. The crew can see their day.
+
+A members-only library
+A protected library of teaching material. Members get in with a key the lab controls, and changing the key signs everyone out at once. Sensitive research stays private, and the lab decides who sees it.
+
+A store off Shopify
+The full catalog, 84 products across shirts, hoodies and prints, moved to a store we own, with card checkout. No Shopify subscription, and the shop looks and works exactly the way we want.
+
+The owner's morning view
+One screen shows bids waiting for approval, today's jobs and the whole bid pipeline in dollars. The owner sees what needs attention first thing, without asking anyone.
+
+A speakers directory
+A page of scholars and artists who can visit a class, with their topics, languages and whether they come virtually or in person. New speakers apply from the same page. Teachers can find the right voice for their course in minutes.
+
+Booking a speaker
+Teachers fill in their course, topic, format and dates, and the request goes straight to the lab. Every request is in one place, with what's needed to make the match.
+
+A site the lab runs itself
+Graduate students update the podcast, projects and news from a simple admin page. When they save, the other two languages are translated automatically,. The lab keeps its site current without waiting on a developer.
 
 Have a hunch?
 
