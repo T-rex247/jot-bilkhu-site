@@ -52,13 +52,14 @@ export const SITE = {
     question: "Who is Jot?",
     heading: "Hello, and welcome.",
     paragraphs: [
-      "My name is Jot (said “joe-th”), and I have a gift I’d like to give you: your time back.",
-      "I’ve come to learn that technology is one of the best gifts I can offer someone. When the manual work in your business runs on its own, you can grow and move faster.",
+      "My name is Jot (“joe-th”), and I’d like to give you a life changing gift — technology.",
+      "When the manual work in your business runs on its own, you can grow and move faster. You can help more people and finally have more time for the things and people you love.",
       "I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
       "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build your whole operating system, one piece at a time.",
     ],
-    background: "Before this I was a certified coach, and I’m an artist and designer.",
+    background: "I am a certified coach, artist, designer, and engineer.",
     portfolio: "See my art and design work",
+    readOn: "Please read on to learn more.",
     image: { src: "/jot-headshot.jpg", alt: "Jot Bilkhu", width: 1280, height: 1219 },
   },
   work: {

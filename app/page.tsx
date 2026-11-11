@@ -48,6 +48,7 @@ export default function Page() {
             <Reveal delay={0.3}>
               <p className="about-strengths">{s.about.background}</p>
               <a className="text-link" href={s.PORTFOLIO_HREF} target="_blank" rel="noopener noreferrer">{s.about.portfolio}<Arrow diagonal /></a>
+              <p className="about-readon">{s.about.readOn}</p>
             </Reveal>
           </div>
         </section>
