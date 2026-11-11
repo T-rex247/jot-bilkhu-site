@@ -56,7 +56,7 @@ export const SITE = {
     heading: "Hello, and welcome.",
     paragraphs: [
       "My name is Jot (“joe-th”) — I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
-      "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build your whole operating system, one piece at a time.",
+      "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build one custom piece for you, or your whole operating system, one piece at a time.",
       "When the manual work in your business runs on its own, you grow and move faster. You help more people and get more time for the things and people you love.",
       "Technology is a gift, and I’d like to build it for you.",
     ],
