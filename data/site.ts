@@ -93,8 +93,13 @@ export const SITE = {
     heading: "How do I get started?",
     body: "Let's talk.",
     book: "Book a time",
-    phone: "Call or text",
+    phone: "Call",
+    text: "Text",
     email: "Email",
+    close: "Close",
+    smsBody: "Hi Jot, I found your website and I'd like to talk about my business. My name is ",
+    emailSubject: "Let's talk about my business",
+    emailBody: "Hi Jot,\n\nI found your website and I'd like to talk.\n\nMy name:\nMy business:\nWhat I'd like help with:\nBest way to reach me:\n\nThanks,\n",
   },
   // Decorative room imagery has empty alt text in the page.
   room: [1, 2, 3, 4].map((frame) => ({

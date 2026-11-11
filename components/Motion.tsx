@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { motion, useAnimationControls, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -78,15 +78,15 @@ export function Typewriter({ text }: { text: string }) {
   );
 }
 
-export function MagneticLink({ children, href, className = "", external = false, label }: {
-  children: ReactNode; href: string; className?: string; external?: boolean; label?: string;
+export function MagneticLink({ children, href, className = "", external = false, label, onClick }: {
+  children: ReactNode; href: string; className?: string; external?: boolean; label?: string; onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
   const x = useSpring(0, { stiffness: 250, damping: 24 });
   const y = useSpring(0, { stiffness: 250, damping: 24 });
   const reduced = useMotionPreference();
   return (
     <motion.a
-      href={href} className={className} aria-label={label}
+      href={href} className={className} aria-label={label} onClick={onClick}
       target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}
       style={{ x: reduced ? 0 : x, y: reduced ? 0 : y }}
       onPointerMove={event => {

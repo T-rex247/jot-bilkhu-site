@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Portal, { ComeInside } from "@/components/Portal";
-import { MagneticLink, NewWorld, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
+import { NewWorld, Portrait, Process, Reveal, TiltCard, Typewriter } from "@/components/Motion";
 import { SITE as s } from "@/data/site";
-
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
-  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="arrow"><path d={diagonal ? "M6 18 18 6M6 6h12v12" : "M4 12h15m-6-6 6 6-6 6"} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-}
+import { Arrow, ContactGrid } from "@/components/Contact";
+import TalkModal from "@/components/TalkModal";
 
 function SectionMark({ number }: { number: string }) {
   return <span className="section-mark" aria-hidden="true"><span>{number}</span><span /></span>;
@@ -20,7 +18,7 @@ export default function Page() {
           <a className="wordmark" href={s.ui.mainHref} aria-label={s.ui.home}>
             <span className="brand-text"><strong>{s.name.toLowerCase()}<span className="brand-dot" aria-hidden="true">.</span></strong><span className="brand-studio">{s.studio.toLowerCase()}</span></span>
           </a>
-          <MagneticLink href={s.ui.startHref} className="talk-button">{s.ui.talk}<Arrow diagonal /></MagneticLink>
+          <TalkModal />
         </div>
       </header>
       <main id="main">
@@ -80,11 +78,7 @@ export default function Page() {
             <div className="future-grid" aria-hidden="true"><span className="flow flow-one" /><span className="flow flow-two" /><span className="flow-node" /></div>
             <Reveal><SectionMark number="06" /><h2 id="start-heading">{s.start.heading}</h2></Reveal>
             <Reveal delay={0.1}><p className="lets-talk">{s.start.body}</p></Reveal>
-            <div className="contact-grid">
-              <Reveal delay={0.1}><MagneticLink className="contact-button contact-book" href={s.BOOK_HREF} external><span>{s.start.book}</span><Arrow diagonal /></MagneticLink></Reveal>
-              <Reveal delay={0.16}><MagneticLink className="contact-button" href={`tel:${s.PHONE_TEL}`}><span><strong>{s.start.phone}</strong><small>{s.PHONE_DISPLAY}</small></span><Arrow diagonal /></MagneticLink></Reveal>
-              <Reveal delay={0.22}><MagneticLink className="contact-button" href={`mailto:${s.EMAIL}`}><span><strong>{s.start.email}</strong><small>{s.EMAIL}</small></span><Arrow diagonal /></MagneticLink></Reveal>
-            </div>
+            <ContactGrid reveal />
             <Reveal delay={0.28} className="start-more">
               <p>{s.about.background}</p>
               <a className="text-link" href={s.PORTFOLIO_HREF} target="_blank" rel="noopener noreferrer">{s.about.portfolio}<Arrow diagonal /></a>

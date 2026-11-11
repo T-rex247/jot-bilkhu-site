@@ -343,10 +343,26 @@ h1 { font-family: var(--font-typewriter), "Courier New", monospace; font-size: c
 .outro-heading { font-family: var(--font-sans), sans-serif; font-weight: 600; letter-spacing: -.055em; line-height: .98;
   font-size: clamp(2.6rem, 6vw, 6rem); color: #0b1412; }
 .outro-heading .l { display: block; width: fit-content; padding-bottom: .06em; will-change: transform, opacity; }
-.outro-heading .accent { background: linear-gradient(90deg, #0f8f7a 0%, #3fa68a 35%, #c98a2c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.outro-heading .accent { padding-bottom: .2em; margin-bottom: -.14em; background: linear-gradient(90deg, #0f8f7a 0%, #3fa68a 35%, #c98a2c 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .outro-body { margin-top: 36px; max-width: 34ch; font-size: clamp(1.1rem, 1.6vw, 1.4rem); line-height: 1.6; color: #36423e; letter-spacing: -.015em; }
 @media (max-width: 767px) { .outro-heading { font-size: clamp(30px, 9.4vw, 40px); } .outro-heading .l { text-wrap: balance; } .outro-body { margin-top: 24px; font-size: 18px; } }
 
 .start-more { margin-top: 36px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, .14); }
 .start-more p { margin: 0; font-size: 16px; line-height: 1.6; opacity: .85; }
 .new-world .start-panel .start-more .text-link { color: inherit; text-decoration-color: #14a38b; }
+
+/* Let's talk modal (header button) */
+.contact-grid { grid-template-columns: .8fr .8fr .8fr 1.3fr; }
+.talk-modal { padding: 0; margin: auto; border: 0; background: transparent; width: min(1080px, calc(100vw - 32px)); max-width: none; max-height: calc(100dvh - 32px); overflow: auto; overscroll-behavior: contain; color: inherit; }
+.talk-modal::backdrop { background: rgba(6, 12, 10, .55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.talk-modal[open] { animation: talk-in .28s cubic-bezier(.2, .8, .2, 1); }
+.talk-modal .start-panel { margin: 0; }
+.talk-modal .lets-talk { margin: 14px 0 34px; }
+.talk-close { position: absolute; top: 16px; right: 16px; z-index: 2; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .2); background: rgba(255, 255, 255, .06); color: #f4f7f5; cursor: pointer; }
+.talk-close svg { width: 16px; height: 16px; }
+@media (hover: hover) and (pointer: fine) { .talk-close:hover { background: rgba(255, 255, 255, .14); } }
+@keyframes talk-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .talk-modal[open] { animation: none; } }
+@media (max-width: 1100px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 767px) { .contact-grid { grid-template-columns: 1fr; } .talk-modal .start-panel { padding: 30px 20px 22px; } .talk-modal .lets-talk { font-size: 56px; margin: 12px 0 24px; } }
+.talk-modal:focus { outline: none; }
