@@ -35,8 +35,9 @@ export const SITE = {
   },
   what: {
     lines: [
-      { text: "Grow bigger, faster, better.", accent: false },
-      { text: "Get your time back.", accent: true },
+      { text: "Grow your business.", accent: false },
+      { text: "Bigger, faster, better.", accent: false },
+      { text: "And take your time back.", accent: true },
     ],
   },
   how: {
