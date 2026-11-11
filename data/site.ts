@@ -57,7 +57,7 @@ export const SITE = {
       "My name is Jot (“joe-th”) — I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
       "I sit down with you, learn how your business actually works, and build technology that works the way you do. I can build a single workflow for you or your entire operating system, one piece at a time.",
       "When the manual work in your business runs on its own, you grow and move faster. You help more people and get more time for the things and people you love.",
-      "Technology is a gift, and I'm honored to build it for you.",
+      "Technology is a life changing gift, and I’m honored to build it for you.",
     ],
     background: "I am a certified coach, artist, designer, and engineer.",
     portfolio: "See my art and design work",
