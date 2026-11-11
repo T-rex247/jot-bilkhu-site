@@ -31,14 +31,14 @@ export const SITE = {
   },
   opening: {
     heading: "I help small businesses automate.",
-    body: "If you want to automate your manual workflows and don't know how — you're in the right place.",
+    body: "If you want to automate your manual workflows and don't know how to start — you're in the right place.",
   },
   what: {
     lines: [
-      { text: "Grow your business.", accent: false },
-      { text: "Bigger, faster, better.", accent: false },
+      { text: "Grow your business bigger, faster, better.", accent: false },
       { text: "And get your time back.", accent: true },
     ],
+    signature: "Jot Bilkhu",
   },
   how: {
     heading: "How it works",
@@ -47,7 +47,7 @@ export const SITE = {
       { title: "I map it.", body: "We find where your time and money are going, and pick the best first piece to automate." },
       { title: "I build it.", body: "With AI build tools, what used to take months now takes days or weeks. Your first piece is built around how your business already works." },
       { title: "You try it.", body: "Use it in your real work. Send me one round of changes, and I’ll make them and send it back." },
-      { title: "You own it.", body: "Once it’s paid in full, it’s yours. I stay with you after it goes live." },
+      { title: "You own it.", body: "If you like it, pay for it in full and it’s yours. I stay with you after it goes live." },
       { title: "We do it again.", body: "When the first piece is paying for itself, we pick the next one and build that. One piece at a time." },
     ],
   },
@@ -56,9 +56,9 @@ export const SITE = {
     heading: "Hello, and welcome.",
     paragraphs: [
       "My name is Jot (“joe-th”) — I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
-      "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build one custom piece for you, or your whole operating system, one piece at a time.",
+      "I sit down with you, learn how your business actually works, and build technology that works the way you do. I can build a single workflow for you or your entire operating system, one piece at a time.",
       "When the manual work in your business runs on its own, you grow and move faster. You help more people and get more time for the things and people you love.",
-      "Technology is a gift, and I’d like to build it for you.",
+      "Technology is a gift, and I'm honored to build it for you.",
     ],
     background: "I am a certified coach, artist, designer, and engineer.",
     portfolio: "See my art and design work",
@@ -127,6 +127,13 @@ export const SITE = {
         image: { src: "/shots/gaw-depository.jpg", alt: "The Depository's members-only sign-in" },
       },
       {
+        project: "Waterproofing contractor",
+        title: "Card payments on every invoice",
+        what: "Each invoice has a pay-by-card link the office can text or email. Card payments, deposits and checks are all recorded against it, and it shows what is still owed.",
+        why: "Customers can pay the day the work is done, and the office knows who owes what without a spreadsheet.",
+        image: { src: "/shots/sohan-invoice.jpg", alt: "An invoice marked partially paid, with Pay with Stripe and Record Payment buttons" },
+      },
+      {
         project: "Artist and shirt shop",
         title: "A store off Shopify",
         what: "The full catalog, 84 products across shirts, hoodies and prints, moved to a store we own, with card checkout.",
@@ -148,6 +155,13 @@ export const SITE = {
         image: { src: "/shots/gaw-speakers.jpg", alt: "Speaker cards with photos, topics and languages" },
       },
       {
+        project: "Waterproofing contractor",
+        title: "Contracts signed on the customer's phone",
+        what: "The customer gets a link to their contract, reviews the work and the price, and signs with a finger.",
+        why: "No printing, scanning or driving out for a signature.",
+        image: { src: "/shots/sohan-contract.jpg", alt: "A contract with three line items and its total, ready to sign" },
+      },
+      {
         project: "University research lab",
         title: "Booking a speaker",
         what: "Teachers fill in their course, topic, format and dates, and the request goes straight to the lab.",
@@ -155,11 +169,25 @@ export const SITE = {
         image: { src: "/shots/gaw-speaker-request.jpg", alt: "The request-a-speaker form" },
       },
       {
+        project: "Waterproofing contractor",
+        title: "811 calls tracked before every dig",
+        what: "The system lists every signed job that needs an 811 call, works out when the marks will be ready and how long they last, and flags any job that hasn't been called yet.",
+        why: "No crew shows up to dig before the lines are marked.",
+        image: { src: "/shots/sohan-811.jpg", alt: "The 811 page flagging a job that starts in three days and has not been called" },
+      },
+      {
         project: "University research lab",
         title: "A site the lab runs itself",
-        what: "Graduate students update the podcast, projects and news from a simple admin page. When they save, the other two languages are translated automatically,.",
+        what: "Graduate students update the podcast, projects and news from a simple admin page. When they save, the other two languages are translated automatically.",
         why: "The lab keeps its site current without waiting on a developer.",
         image: { src: "/shots/gaw-initiatives.jpg", alt: "The lab's initiatives: writing group, depository, speakers, projects and podcast" },
+      },
+      {
+        project: "Waterproofing contractor",
+        title: "A weekly supply order that writes itself",
+        what: "From past purchases and the jobs on the schedule, the system builds this week's order: what to buy, how many, and how sure it is about each number.",
+        why: "The order is ready every week, based on what the business actually uses.",
+        image: { src: "/shots/sohan-warehouse.jpg", alt: "This week's order list with quantities, prices and a confidence score for each item" },
       },
     ],
   },

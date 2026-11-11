@@ -6,7 +6,7 @@ Skokie, IL · Chicago area
 
 I help small businesses automate.
 
-If you want to automate your manual workflows and don't know how — you're in the right place.
+If you want to automate your manual workflows and don't know how to start — you're in the right place.
 
 
 
@@ -22,7 +22,7 @@ How it works
 
 4. You try it. Use it in your real work. Send me one round of changes, and I’ll make them and send it back.
 
-5. You own it. Once it’s paid in full, it’s yours. I stay with you after it goes live.
+5. You own it. If you like it, pay for it in full and it’s yours. I stay with you after it goes live.
 
 6. We do it again. When the first piece is paying for itself, we pick the next one and build that. One piece at a time.
 
@@ -62,6 +62,9 @@ A month and week calendar of every job. Moving a job is one drag, and multi-day 
 A members-only library
 A protected library of teaching material. Members get in with a key the lab controls, and changing the key signs everyone out at once. Sensitive research stays private, and the lab decides who sees it.
 
+Card payments on every invoice
+Each invoice has a pay-by-card link the office can text or email. Card payments, deposits and checks are all recorded against it, and it shows what is still owed. Customers can pay the day the work is done, and the office knows who owes what without a spreadsheet.
+
 A store off Shopify
 The full catalog, 84 products across shirts, hoodies and prints, moved to a store we own, with card checkout. No Shopify subscription, and the shop looks and works exactly the way we want.
 
@@ -71,11 +74,20 @@ One screen shows bids waiting for approval, today's jobs and the whole bid pipel
 A speakers directory
 A page of scholars and artists who can visit a class, with their topics, languages and whether they come virtually or in person. New speakers apply from the same page. Teachers can find the right voice for their course in minutes.
 
+Contracts signed on the customer's phone
+The customer gets a link to their contract, reviews the work and the price, and signs with a finger. No printing, scanning or driving out for a signature.
+
 Booking a speaker
 Teachers fill in their course, topic, format and dates, and the request goes straight to the lab. Every request is in one place, with what's needed to make the match.
 
+811 calls tracked before every dig
+The system lists every signed job that needs an 811 call, works out when the marks will be ready and how long they last, and flags any job that hasn't been called yet. No crew shows up to dig before the lines are marked.
+
 A site the lab runs itself
-Graduate students update the podcast, projects and news from a simple admin page. When they save, the other two languages are translated automatically,. The lab keeps its site current without waiting on a developer.
+Graduate students update the podcast, projects and news from a simple admin page. When they save, the other two languages are translated automatically. The lab keeps its site current without waiting on a developer.
+
+A weekly supply order that writes itself
+From past purchases and the jobs on the schedule, the system builds this week's order: what to buy, how many, and how sure it is about each number. The order is ready every week, based on what the business actually uses.
 
 Have a hunch?
 

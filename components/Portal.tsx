@@ -103,17 +103,22 @@ function LineIn({ p, i, n, line }: { p: MotionValue<number>; i: number; n: numbe
   return <motion.span className={line.accent ? "l accent" : "l"} style={{ opacity, y }}>{line.text}</motion.span>;
 }
 
-function Outro({ p, lines }: { p: MotionValue<number>; lines: readonly Line[] }) {
+function Outro({ p, lines, signature }: { p: MotionValue<number>; lines: readonly Line[]; signature?: string }) {
+  const n = lines.length + (signature ? 1 : 0);
+  const start = 0.56 + (lines.length / n) * 0.3;
+  const sigOpacity = useTransform(p, ramp(start, start + 0.08, 0, 1));
+  const sigY = useTransform(p, ramp(start, start + 0.1, 22, 0));
   return (
     <section id="what" className="portal-outro shell" aria-labelledby="what-heading">
       <h2 id="what-heading" className="outro-heading">
-        {lines.map((l, i) => <LineIn key={i} p={p} i={i} n={lines.length} line={l} />)}
+        {lines.map((l, i) => <LineIn key={i} p={p} i={i} n={n} line={l} />)}
       </h2>
+      {signature && <motion.p className="outro-sig" style={{ opacity: sigOpacity, y: sigY }}>{signature}</motion.p>}
     </section>
   );
 }
 
-export default function Portal({ children, lines }: { children: ReactNode; lines: readonly Line[] }) {
+export default function Portal({ children, lines, signature }: { children: ReactNode; lines: readonly Line[]; signature?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   useOneGesture(!reduced);
@@ -131,6 +136,7 @@ export default function Portal({ children, lines }: { children: ReactNode; lines
         <div className="new-world portal-outro-still">
           <section id="what" className="portal-outro shell" aria-labelledby="what-heading">
             <h2 id="what-heading" className="outro-heading">{lines.map((l, i) => <span key={i} className={l.accent ? "l accent" : "l"}>{l.text}</span>)}</h2>
+            {signature && <p className="outro-sig">{signature}</p>}
           </section>
         </div>
       </div>
@@ -145,7 +151,7 @@ export default function Portal({ children, lines }: { children: ReactNode; lines
         </div>
         <motion.div className="portal-copy" style={{ opacity: copyOpacity, y: copyY }}>{children}</motion.div>
         <motion.div className="portal-white" style={{ opacity: white }} aria-hidden="true" />
-        <Outro p={p} lines={lines} />
+        <Outro p={p} lines={lines} signature={signature} />
       </div>
     </div>
   );

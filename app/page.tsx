@@ -23,7 +23,7 @@ export default function Page() {
         </div>
       </header>
       <main id="main">
-        <Portal lines={s.what.lines}>
+        <Portal lines={s.what.lines} signature={s.what.signature}>
         <section className="opening shell" aria-labelledby="opening-heading">
           <div className="opening-content">
             <span className="opening-rule" aria-hidden="true" />
