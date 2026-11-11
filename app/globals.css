@@ -55,7 +55,7 @@ img { display: block; max-width: 100%; height: auto; }
 .topbar-inner { width: min(100% - 112px, 1248px); margin: auto; height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .wordmark { display: flex; align-items: center; gap: 12px; min-height: 44px; }
 .brand-text { display: flex; align-items: center; }
-.wordmark strong { font-size: 22px; font-weight: 500; letter-spacing: -.035em; line-height: 1; }
+.wordmark strong { font-size: 22px; font-weight: 400; letter-spacing: -.035em; line-height: 1; }
 .brand-dot { color: #ebb84a; }
 .brand-name { background: linear-gradient(90deg, #2bb59a 0%, #6fbf94 40%, #ebb84a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .brand-studio { margin-left: 10px; font-size: 13px; line-height: 1.3; color: #a9aea8; white-space: nowrap; }
