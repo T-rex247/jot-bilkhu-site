@@ -55,10 +55,10 @@ export const SITE = {
     question: "Who is Jot?",
     heading: "Hello, and welcome.",
     paragraphs: [
-      "My name is Jot (“joe-th”), and I’d like to give you a life changing gift — technology.",
-      "When the manual work in your business runs on its own, you can grow and move faster. You can help more people and finally have more time for the things and people you love.",
-      "I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
+      "My name is Jot (“joe-th”) — I design and build software with AI build tools and a team of engineers behind me. What used to take years now takes days or weeks.",
       "We’ll sit down with you, learn how your business actually works, and build technology that works the way you do. We can build your whole operating system, one piece at a time.",
+      "When the manual work in your business runs on its own, you grow and move faster. You help more people and get more time for the things and people you love.",
+      "Technology is a gift, and I’d like to build it for you.",
     ],
     background: "I am a certified coach, artist, designer, and engineer.",
     portfolio: "See my art and design work",
