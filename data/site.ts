@@ -3,7 +3,7 @@ export const SITE = {
   SITE_LIVE: false,
   SITE_URL: "https://jot-studio-v3.vercel.app",
   PORTFOLIO_HREF: "https://docs.google.com/presentation/d/1OjXK5zlKdsBDqpjKGsYQDLc3fZSUuoxsfiL8Sk7mzlU/edit?usp=sharing",
-  BOOK_HREF: "https://calendar.app.google/59wPznXmLWFra3iL7",
+  BOOK_HREF: "https://cal.com/jot-darm7c/one-hour",
   PHONE_DISPLAY: "(513) 919-5236",
   PHONE_TEL: "+15139195236",
   EMAIL: "gurjotbilkhu@gmail.com",
